@@ -1,0 +1,36 @@
+*{
+	box-sizing:border-box;
+}
+
+body{
+	font-family:'Open Sans',serif;
+	color:#222222;
+	background-image: url('../images/background.jpg');
+	background-size: 100%;	
+}
+
+.panel{
+	border:none;
+	opacity:0.98;
+}
+
+.panel-heading{
+	background:#222222 !important;
+	color:WhiteSmoke !important;
+}
+
+/*Navbar*/
+
+.nav{
+	min-height:10vh !important;
+}
+.nav>li {
+    margin-top: 1vh;
+}
+.navbar-brand img{
+	height:5vh !important;
+}
+.navbar-nav>li>a:hover{
+	text-decoration: underline;
+	font-size:15px;
+}
