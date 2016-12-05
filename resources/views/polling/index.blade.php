@@ -29,9 +29,9 @@
                             <tr>
                                 <td> {{ $polling->question }} </td>
                                 <td>
-                                    {{-- <button class="btn btn-xs" specification="button" onclick="showModalDetail({{$article->id}})">
+                                    <button class="btn btn-xs" specification="button" onclick="showModalDetail({{$polling->id}})">
                                         <span class="fa fa-eye"></span>
-                                    </button> --}}
+                                    </button>
                                     <a href="{{ action('Admin\PollingController@edit',$polling->id) }}">
                                         <button class="btn btn-xs" specification="button">
                                             <span class="fa fa-edit"></span>
@@ -54,7 +54,7 @@
         
     </div>
 </div>
-{{-- @include('admin.service.modal-service-detail') --}}
+@include('polling.modal-polling-detail')
 @include('modal-delete')
 @endsection
 
@@ -74,25 +74,26 @@
         $('#modalDelete').modal('show');
         $('#modalDeleteForm').attr('action', '{{url("/admin/polling")}}/'+id);
     }
-    // function showModalDetail(article_id) {
-    //     var modal = $('#modalShowService');
-    //     console.log(article_id);
-    //     $.ajax({
-    //         url: "{{action('Admin\PollingController@index')}}",
-    //         type: 'get',
-    //         data: {id:article_id},
-    //         dataType:'json',
-    //         success:function(data){
-    //             modal.find('#title').text(data.title);
-    //             modal.find('#description').html(data.content);
-    //             modal.find('#image img').attr('src',data.cover);
-    //             modal.modal('show');
-    //         },
-    //         error:function(){
-    //             alert('error');
-    //         }
-    //     });
-    // }
+    function showModalDetail(polling_id) {
+        var modal = $('#modalShowPolling');
+        console.log(polling_id);
+        $.ajax({
+            url: "{{action('Admin\PollingController@data')}}",
+            type: 'get',
+            data: {id:polling_id},
+            dataType:'json',
+            success:function(data){
+                modal.find('#question').text(data.question);
+                modal.find('#option1').text(data.option1.answer+" ("+data.option1.count+" vote)");
+                modal.find('#option2').text(data.option2.answer+" ("+data.option2.count+" vote)");
+                modal.find('#option3').text(data.option3.answer+" ("+data.option3.count+" vote)");
+                modal.modal('show');
+            },
+            error:function(){
+                alert('error');
+            }
+        });
+    }
 </script>
 
 @endsection

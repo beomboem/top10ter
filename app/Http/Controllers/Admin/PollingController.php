@@ -80,4 +80,13 @@ class PollingController extends Controller
         $polling->delete();
         return redirect()->action('Admin\ArticleController@index');
     }
+    public function data(Request $request){
+        $id = $request->input('id');
+        $polling=$this->model->find($id);
+        $response = $polling;
+        $response["option1"] = $polling->option[0];
+        $response["option2"] = $polling->option[1];
+        $response["option3"] = $polling->option[2];
+        return response()->json($response);
+    }
 }

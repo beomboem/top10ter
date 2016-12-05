@@ -30,6 +30,7 @@ Route::get('/contact','ContactController@index');
 //Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth','admin']], function() {
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
     Route::resource('/article', 'ArticleController');
+    Route::get('/polling/data','PollingController@data');
     Route::resource('/polling', 'PollingController');
     Route::get('/', 'DashboardController@index');
 });
