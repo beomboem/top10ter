@@ -1,0 +1,357 @@
+/* GISTO LANDING PAGE
+COPYRIGHT LAZATO.COM */
+
+/*IMPORT FONTS*/
+@font-face {
+  font-family: Adam;
+  src: url(../fonts/Adam.otf);
+}
+@font-face {
+  font-family: Montserrat;
+  src: url(../fonts/Montserrat-Regular.ttf);
+}
+
+/*GENERAL*/
+@-webkit-keyframes fadeInRight {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(20%, 0, 0);
+    transform: translate3d(20%, 0, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(20%, 0, 0);
+    transform: translate3d(20%, 0, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+.fadeInRight {
+  -webkit-animation-name: fadeInRight;
+  animation-name: fadeInRight;
+}
+@-webkit-keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-20%, 0, 0);
+    transform: translate3d(-20%, 0, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-20%, 0, 0);
+    transform: translate3d(-20%, 0, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+.fadeInLeft {
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+}
+.title {
+  font-family: Adam;
+  font-size: 4em;
+  margin-top: 5vw;
+}
+.title + hr {
+  border-color: #252525;
+  margin-bottom: 5vw;
+  width: 5vw;
+}
+
+/* NAVBAR */
+.navbar {
+  font-family: Montserrat;
+}
+.navbar-default {
+  background-color: transparent;
+  border: none;
+  margin-top: 30px;
+}
+.navbar-default .navbar-nav>li>a {
+  border-radius: 5px;
+  color: #eaefef;
+  margin: 15px 10px;
+  padding: 5px 10px;
+  transition-duration: 0.35s;
+}
+.navbar-default .navbar-nav>li>a:focus {
+  color: #252525;
+  background-color: #eaefef;
+}
+.navbar-default .navbar-nav>li>a:hover {
+  color: #252525;
+  background-color: #eaefef;
+}
+
+/*HOME*/
+#home {
+  height: 80vh;
+}
+#logo {
+  max-width: 200px;
+  padding: 10px 0;
+}
+.background-home {
+  position: absolute;
+  top: 0;
+  z-index: -99999;
+}
+.background-home img {
+  height: 100vh;
+  width: 100vw;
+}
+.phone-home {
+  margin: 7vw;
+}
+.phone-home img:first-child {
+  max-width: 25vw;
+  position: absolute;
+  z-index: -99999;
+}
+.phone-home img:nth-child(2) {
+  margin: 9.5vh 1vw;
+  position: absolute;
+  width: 23.3vw;
+  z-index: -99999;
+}
+.shape-home {
+  border-bottom: 100vh solid #252525;
+  border-left: 50vw solid transparent;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -99999;
+}
+.welcoming-words-home {
+  color: #eaefef;
+  margin: 10vh 25px;
+}
+.welcoming-words-home img {
+  margin: 50px auto;
+  max-width: 245px;
+}
+.welcoming-words-home p:first-child {
+  font-family: Montserrat;
+  font-size: 4em;
+}
+.welcoming-words-home p:nth-child(2) {
+  font-family: Adam;
+  font-size: 6.5em;
+  margin: -20px auto -40px auto;
+}
+
+/*FEATURES*/
+#features {
+  background-color: #eaefef;
+  height: 100vh;
+}
+#features h3 {
+  color: #5498c0;
+  margin-top: 10vh;
+}
+#features img {
+  margin: 0 auto;
+}
+#features p {
+  font-family: Adam;
+  font-size: 1.25em;
+  font-weight: bold;
+}
+.shape-features {
+  border-bottom: 20vh solid #eaefef;
+  border-right: 100vw solid transparent;
+  height: 0;
+  position: absolute;
+  top: 80vh;
+  width: 0;
+}
+
+/*SCREENS*/
+#screens {
+  background: url('../../landing_page/BG Screen.png') no-repeat center center;
+  background-size: cover;
+  color: #eaefef;
+  height: 100vh;
+}
+#screens hr {
+  border-color: #eaefef;
+}
+#screens .bg-phone {
+  margin: -28px 0 0 -75.5px;
+  position:absolute;
+  width: 150px;
+}
+.detail h3 {
+  font-size: 1.5em;
+}
+.detail p {
+  font-family: Adam;
+  font-size: 1.2em;
+}
+.slider {
+  margin: 0 auto;
+  width: 140px;
+}
+.slider img {
+  margin: 0 auto;
+  max-width: 140px;
+}
+.slider .slick-next,
+.slider .slick-prev {
+  height: 78px;
+  top: 8.5vw;
+  width: 28px;
+  z-index: 10000;
+}
+.slider .slick-next {
+  background: url('../../landing_page/next.png') no-repeat;
+  right: -6vw;
+}
+.slider .slick-prev {
+  background: url('../../landing_page/prev.png') no-repeat;
+  left: -6vw;
+}
+.slick-next::before,
+.slick-prev::before {
+  content: "";
+}
+.slider .slick-slide,
+.slider-detail .slick-slide {
+  outline: none;
+}
+
+/*GET APP*/
+#get-app {
+  background: url('../../landing_page/BG Get App.jpg') no-repeat center center;
+  color: #eaefef;
+  height: 100vh
+}
+#get-app hr {
+  border-color: #eaefef;
+}
+.app-image .application {
+  max-height: 60vh;
+  position: absolute;
+  right: 5vw;
+  top: -1vh;
+}
+.app-image .library {
+  left: 10vw;
+  max-height: 50vh;
+  position: absolute;
+  top: 5vh;
+}
+.app-subscribe {
+  margin-top: 10vh;
+}
+.app-subscribe button {
+  background-color: transparent;
+  border: 5px solid #2368a5;
+  border-radius: 2em;
+  box-shadow: none;
+  font-size: 1.3em;
+  padding: 1em 2em;
+  transition-duration: 0.35s;
+}
+.app-subscribe button:focus {
+  outline: none;
+}s
+.app-subscribe button:hover {
+  background-color: #2368a5;
+}
+.app-subscribe p {
+  font-size: 4em;
+}
+
+/*ARROW UP*/
+.arrow-up img {
+  left: 47.5vw;
+  max-width: 3.5vw;
+  position: absolute;
+  top: 395vh;
+}
+
+/*FOOTER*/
+footer {
+  background-color: #111;
+  height: 27vh;
+}
+footer p {
+  color: #eaefef;
+}
+footer .logo {
+  display: block;
+  margin: 5vh auto 3vh;
+  max-width: 10vw;
+}
+footer .social-media img {
+  display: inline-block;
+  margin: 0 0.5vw 2vh;
+  max-width: 2vw;
+}
+
+/*SUBSCRIBE*/
+#subscribe h4 {
+  font-family: Adam;
+  font-weight: bold;
+}
+#subscribe .modal-content {
+  background-color: #eceff1;
+  border-radius: 2vw;
+  padding: 1vh 2vh;
+}
+#subscribe .modal-content button,
+#subscribe .modal-content input {
+  border: none;
+  border-radius: 20px;
+  box-shadow: none;
+  font-family: Montserrat;
+}
+#subscribe .modal-content input {
+  padding: 3.5vh 13vw 3.5vh 2vw;
+}
+#subscribe .modal-dialog {
+  margin: 35vh auto;
+  width: 650px;
+}
+#subscribe .submit {
+  padding: 8px;
+  position: absolute;
+  right: 19px;
+  top: 4px;
+  transition-duration: 0.35s;
+}
+#subscribe .submit:focus {
+  outline: none;
+}
+#subscribe .submit:hover {
+  font-size: 16px;
+  padding: 12px;
+  right: 16px;
+  top: 0;
+}
+.modal-backdrop {
+    opacity: 0.75 !important;
+}
