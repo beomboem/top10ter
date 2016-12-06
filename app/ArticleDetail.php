@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ArticleDetail extends Model
 {
     protected $fillable = [
-        'title', 'content'
+        'article_id','title', 'content'
     ];
     public function article(){
 		return $this->belongsTo('App\Article');
@@ -21,14 +21,6 @@ class ArticleDetail extends Model
     	}else{
     		return '';
     	}
-    }
-    public function getCoverThumbAttribute(){
-        if($d=$this->files()->where('type', 'cover')->first()){
-            return url($d->base_url.$d->file_name."_thumb.".$d->extension);
-        }
-        else{
-            return '';
-        }
     }
     public function getDirectoryPathAttribute(){
     	if($d=$this->files()->where('type','cover')->first()){
