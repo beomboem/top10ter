@@ -20,3 +20,17 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::get('/contact','ContactController@index');
+
+// admin route
+// Route::group(['prefix' => 'admincp/admin'], function() {
+//     Route::get('logout','Auth\LoginController@logout');
+//     Route::post('login', 'Auth\LoginController@login');
+//     Route::get('login', 'Auth\LoginController@showLoginForm');
+// });
+//Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth','admin']], function() {
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
+    Route::resource('/article', 'ArticleController');
+    Route::get('/polling/data','PollingController@data');
+    Route::resource('/polling', 'PollingController');
+    Route::get('/', 'DashboardController@index');
+});
