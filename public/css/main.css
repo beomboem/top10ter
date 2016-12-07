@@ -365,50 +365,50 @@ Welcome Style
 }
 
     /* ==========================================================================
-Services Style
+Articles Style
 ========================================================================== */
-#services {
+#articles {
   background: #24242a;
   padding: 60px 0;
   text-align: center;
 }
-#services h2 {
+#articles h2 {
   text-transform: uppercase;
   color: #fff;
 }
-#services p {
+#articles p {
   color: #fff;
 }
-#services .services-box {
+#articles .articles-box {
   margin-top: 40px;
 }
-#services .services-box .col-md-4 {
+#articles .articles-box .col-md-4 {
   margin-bottom: 20px;
-}
-#services .services-box .col-md-4 .media-left,
-#services .services-box .col-md-4 .media-right,
-#services .services-box .col-md-4 .media-body {
+}/*
+#articles .articles-box .col-md-4 .media-left,
+#articles .articles-box .col-md-4 .media-right,
+#articles .articles-box .col-md-4 .media-body {
   padding-right: 30px;
   vertical-align: baseline;
 }
-#services .services-box .col-md-4 .media-left p,
-#services .services-box .col-md-4 .media-right p,
-#services .services-box .col-md-4 .media-body p {
+#articles .articles-box .col-md-4 .media-left p,
+#articles .articles-box .col-md-4 .media-right p,
+#articles .articles-box .col-md-4 .media-body p {
   text-align: left;
 }
-#services .services-box .col-md-4 .media-left h3,
-#services .services-box .col-md-4 .media-right h3,
-#services .services-box .col-md-4 .media-body h3 {
+#articles .articles-box .col-md-4 .media-left h3,
+#articles .articles-box .col-md-4 .media-right h3,
+#articles .articles-box .col-md-4 .media-body h3 {
   text-transform: uppercase;
   color: #fff;
   text-align: left;
 }
-#services .services-box .col-md-4 .media-left span,
-#services .services-box .col-md-4 .media-right span,
-#services .services-box .col-md-4 .media-body span {
+#articles .articles-box .col-md-4 .media-left span,
+#articles .articles-box .col-md-4 .media-right span,
+#articles .articles-box .col-md-4 .media-body span {
   font-size: 36px;
   color: #fff;
-}
+}*/
 
     /* ==========================================================================
 Portfolio Style
