@@ -100,7 +100,12 @@
                                 <span>polling</span>
                             </a>
                         </li>
-                        
+                        <li class="sub-menu">
+                            <a href="{{ url('admin/message') }}">
+                                <i class="fa fa-envelope"></i>
+                                <span>message</span>
+                            </a>
+                        </li>
                     </div>
                     <!-- sidebar menu end-->
                 </div>
