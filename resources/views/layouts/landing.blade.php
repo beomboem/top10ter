@@ -63,7 +63,7 @@
                             <li><a href="{{url('/#welcome')}}" class="page-scroll">Home</a></li>
                             <li><a href="{{url('/#articles')}}" class="page-scroll">Articles</a></li>
                             <li><a href="{{url('/#portfolio')}}" class="page-scroll">Polling</a></li>
-                            <li><a href="{{url('/#team')}}" class="page-scroll">About</a></li>
+                            <li><a href="{{url('/#fun-facts')}}" class="page-scroll">About</a></li>
                             <li><a href="{{url('/#contact')}}" class="page-scroll">Contact</a></li>
                             <!-- <li><a href="{{url('/login')}}" class="page-scroll">Login</a></li> -->
                             <!-- <li><a href="{{url('/register')}}" class="page-scroll">Register</a></li> -->
@@ -108,13 +108,13 @@
 	============================================= -->
     <footer>
         <div class="container">
-            <h1>Rise</h1>
+            <h1>TOP10TER</h1>
             <div class="social">
                 <a href="#"><i class="fa fa-facebook fa-2x"></i></a>
                 <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
                 <a href="#"><i class="fa fa-dribbble fa-2x"></i></a>
             </div>
-            <h6>&copy; 2015 Rise.Development By BootstrapDev</h6>
+            <h6>&copy; 2016 Top10Ter. All right reserved<!-- Development By BootstrapDev --></h6>
         </div>
     </footer>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

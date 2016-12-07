@@ -2,29 +2,29 @@
 
 @section('content')
 <!--SLIDER-->
-        <!-- <div id="owl-hero" class="owl-carousel owl-theme">
+        <div id="owl-hero" class="owl-carousel owl-theme">
             <div class="item" style="background-image: url(img/sliders/Slide.jpg)">
                 <div class="caption">
-                    <h6>Branding / Design / Creativty</h6>
-                    <h1>We Are <span>Rise</span></h1>
-                    <a class="btn btn-transparent" href="#">Learn More</a><a class="btn btn-light" href="#">Buy Now</a>
+                    <h4 style="color:white">What's New?</h4>
+                    <h1><strong>TOP10TER</strong></h1>
+                    <!-- <a class="btn btn-transparent" href="#">Learn More</a><a class="btn btn-light" href="#">Buy Now</a> -->
                 </div>
             </div>
             <div class="item" style="background-image: url(img/sliders/Slide2.jpg)">
                 <div class="caption">
-                    <h6>Branding / Design / Creativty</h6>
-                    <h1>Creative <span>Design</span></h1>
-                    <a class="btn btn-transparent" href="#">Learn More</a><a class="btn btn-light" href="#">Buy Now</a>
+                    <h3 style="color:white">10 Facts</h3>
+                    <h1>Unique | Entertain</h1>
+                    <!-- <a class="btn btn-transparent" href="#">Learn More</a><a class="btn btn-light" href="#">Buy Now</a> -->
                 </div>
             </div>
-            <div class="item" style="background-image: url(img/sliders/Slide3.jpg)">
+            <!-- <div class="item" style="background-image: url(img/sliders/Slide3.jpg)">
                 <div class="caption">
                     <h6>Branding / Design / Creativty</h6>
                     <h1>Clean <span>Code</span></h1>
                     <a class="btn btn-transparent" href="#">Learn More</a><a class="btn btn-light" href="#">Buy Now</a>
                 </div>
-            </div>
-        </div> -->
+            </div> -->
+        </div>
 
     <!-- Welcome
 	============================================= -->
@@ -32,7 +32,7 @@
         <div class="container">
             <h2>Welcome To <span>TOP10TER</span></h2>
             <hr class="sep">
-            <p>[Tagline]</p>
+            <!-- <p>[Tagline]</p> -->
             <img class="img-responsive center-block wow fadeInUp" data-wow-delay=".3s" src="img/logo/logo-black.png" alt="logo">
         </div>
     </section>
@@ -112,7 +112,7 @@
     <!-- Portfolio
 	============================================= -->
     <section id="portfolio">
-        <div class="container-fluid">
+        <div class="container">
             <h2>POLLING</h2>
             <hr class="sep">
             <p>CHOOSE YOUR OWN TOPIC OF THE WEEK</p>
@@ -210,14 +210,14 @@
                 @if($pollings->count()>0)
                     @foreach($pollings as $polling)
                     
-                    <div class="col-md-4" style="box-shadow: 10px 10px 5px #888888;">
+                    <div class="col-md-4" style="box-shadow: 10px 10px 5px #888888; background-color:white;">
                             <form>
                             <div class="panel">
                                 <div class="panel-heading">
                                     <h5> {{$polling->question}} </h5>
                                 </div>
-                                <hr class="sep">
-                                <div class="panel-body" style="text-align:left; padding-left:5vw;">
+                                <hr class="sep" style="margin-top:0; margin-bottom:0;">
+                                <div class="panel-body" style="text-align:left; padding-left:2vw;">
                                     @foreach($polling->option as $o)
                                         <input type="radio"> {{$o->answer}} <br>
                                     @endforeach
@@ -234,7 +234,7 @@
     </section>
     <!-- Work Process
 	============================================= -->
-    <section id="work-process">
+    <!-- <section id="work-process">
         <div class="container">
             <h2>Work Process</h2>
             <hr class="sep">
@@ -258,7 +258,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- Some Fune Facts
 	============================================= -->
     <section id="fun-facts">
@@ -268,31 +268,31 @@
             <p>Fun Facts</p>
             <div class="row wow fadeInUp" data-wow-delay=".3s">
                 <div class="col-lg-3">
-                    <span class="icon-happy"></span>
-                    <h2 class="number timer">367</h2>
-                    <h4>Happy Clients</h4>
-                </div>
-                <div class="col-lg-3">
                     <span class="icon-trophy"></span>
-                    <h2 class="number timer">150</h2>
-                    <h4>Project Done</h4>
+                    <h2 class="number timer">100</h2>
+                    <h4>Unique Facts</h4>
                 </div>
                 <div class="col-lg-3">
-                    <span class="icon-wine"></span>
-                    <h2 class="number timer">121</h2>
-                    <h4>Glass Of Wine</h4>
+                    <span class="icon-happy"></span>
+                    <h2 class="number timer">50</h2>
+                    <h4>Polling</h4>
                 </div>
                 <div class="col-lg-3">
-                    <span class="icon-documents"></span>
-                    <h2 class="number timer">10000</h2>
-                    <h4>Lines Of Code</h4>
+                    <span class="icon-profile-male"></span>
+                    <h2 class="number timer">20</h2>
+                    <h4>Users</h4>
+                </div>
+                <div class="col-lg-3">
+                    <span class="icon-profile-female"></span>
+                    <h2 class="number timer">5</h2>
+                    <h4>Authors</h4>
                 </div>
             </div>
         </div>
     </section>
     <!-- Some Fune Facts
 	============================================= -->
-    <section id="team">
+    <!-- <section id="team">
         <div class="container">
             <h2>Our Team</h2>
             <hr class="sep">
@@ -336,7 +336,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- Testimonials
 	============================================= -->
     <section id="testimonials">
@@ -348,27 +348,23 @@
                 <div class="item">
                     <div class="quote">
                         <i class="fa fa-quote-left left fa-2x"></i>
-                        <h5>I’am amazed, I should say thank you so much for your awesome template. Design is so 
-good and neat, every detail has been taken care these team are realy amazing and talented! I will 
-work only with <span>Rise</span>.<i class="fa fa-quote-right right fa-2x"></i></h5>
+                        <h5>I’am amazed, I should say thank you so much for your awesome information. I will 
+look into <span>TOP10TER</span> everyday.<i class="fa fa-quote-right right fa-2x"></i></h5>
 
                     </div>
                 </div>
                 <div class="item">
                     <div class="quote">
                         <i class="fa fa-quote-left left fa-2x"></i>
-                        <h5>I’am amazed, I should say thank you so much for your awesome template. Design is so 
-good and neat, every detail has been taken care these team are realy amazing and talented! I will 
-work only with <span>Rise</span>.<i class="fa fa-quote-right right fa-2x"></i></h5>
+                        <h5>Thankyou for the information that <span>TOP10TER</span> give. I haven't know that before, but now I can know more..<i class="fa fa-quote-right right fa-2x"></i></h5>
 
                     </div>
                 </div>
                 <div class="item">
                     <div class="quote">
                         <i class="fa fa-quote-left left fa-2x"></i>
-                        <h5>I’am amazed, I should say thank you so much for your awesome template. Design is so 
-good and neat, every detail has been taken care these team are realy amazing and talented! I will 
-work only with <span>Rise</span>.<i class="fa fa-quote-right right fa-2x"></i></h5>
+                        <h5>I’am amazed, I should say thank you so much for your awesome information. I will 
+look into <span>TOP10TER</span> everyday.<i class="fa fa-quote-right right fa-2x"></i></h5>
 
                     </div>
                 </div>
@@ -401,7 +397,7 @@ work only with <span>Rise</span>.<i class="fa fa-quote-right right fa-2x"></i></
     </section>
     <!-- Google Map
 	============================================= -->
-    <div id="map"></div>
+    <!-- <div id="map"></div> -->
 @endsection
 
 @section('customjs')

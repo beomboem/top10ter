@@ -349,7 +349,7 @@ Sliders Style
 Welcome Style
 ========================================================================== */
 #welcome {
-  padding: 100px 0;
+  padding: 60px 0;
   text-align: center;
 }
 #welcome h2 {
@@ -416,6 +416,7 @@ Portfolio Style
 #portfolio {
   padding: 60px 0;
   text-align: center;
+  background-color: #e2e2e2;
 }
 #portfolio h2 {
   text-transform: uppercase;
@@ -814,4 +815,8 @@ Media Queries Style
     -moz-box-shadow: 5px 7px 8px -5px rgba(0,0,0,0.2);
     box-shadow: 5px 7px 8px -5px rgba(0,0,0,0.2);
     background-color: #f7f7f7;
+}
+
+.articles-description h5{
+  font-weight: bold;
 }
