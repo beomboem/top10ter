@@ -15,8 +15,7 @@
     return view('public.index');
 });*/
 Route::get('/','PageController@index');
-
-Auth::routes();
+Route::get('/showArticles','PageController@showArticles');
 
 Route::get('/home', 'HomeController@index');
 

@@ -27,4 +27,7 @@ class PageController extends Controller
         
     	return redirect()->action('PageController@contact');
     }
+    public function showArticles(){
+        return view('public.show-articles');        
+    }
 }
