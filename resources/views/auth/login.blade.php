@@ -55,9 +55,9 @@
                                     Login
                                 </button>
 
-                                <a class="btn btn-link" href="{{ url('/password/reset') }}">
+                                <!--<a class="btn btn-link" href="{{ url('/password/reset') }}">
                                     Forgot Your Password?
-                                </a>
+                                </a>-->
                             </div>
                         </div>
                     </form>
@@ -112,9 +112,9 @@
                             </div>
                         </div>
                         <button type="submit" class="btn-block">Login</button>
-                        <a class="btn btn-link" href="{{ url('/password/reset') }}">
+                        {{--<a class="btn btn-link" href="{{ url('/password/reset') }}">
                             Forgot Your Password?
-                        </a>
+                        </a>--}}
                     </form>
                     
                 </form>

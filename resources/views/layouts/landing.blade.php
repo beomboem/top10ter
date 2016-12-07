@@ -55,7 +55,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#"><img src="{{asset('img/logo/logo-white.png')}}" class="img-responsive" alt="logo"></a>
+                    <a class="navbar-brand" href="{{url('/#')}}"><img src="{{asset('img/logo/logo-white.png')}}" class="img-responsive" alt="logo"></a>
                 </div>
                 <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-1">
                     <div class="col-md-9 col-xs-12 nav-wrap">

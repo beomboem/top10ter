@@ -33,7 +33,7 @@
             <div class="brand">
 
                 <a href="{{ url('/admin') }}" class="logo">
-                    <img src="{{ asset('assets/img/logo.png') }}" alt="">
+                    <img src="{{asset('img/logo/logo-white.png')}}" alt="">
                 </a>
                 <div class="sidebar-toggle-box">
                     <div class="fa fa-bars"></div>

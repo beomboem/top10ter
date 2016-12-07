@@ -15,7 +15,8 @@ class UserSeeder extends Seeder
         User::create([
         	'name'=>'admin',
         	'password'=>bcrypt('admin123'),
-        	'email'=>'admin@topter.com'
+        	'email'=>'admin@topter.com',
+            'type'=>'admin'
         	]);
     }
 }
