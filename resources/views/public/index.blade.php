@@ -49,6 +49,7 @@
 
                     @if($articles->count()>0)
                         @foreach($articles as $article)
+                            <a href="{{url('showArticle',$article->id)}}">
                             <div class="col-md-4">
                                 <div class="row">
                                     <div class="col-md-7" style="overflow:hidden;">
@@ -59,6 +60,7 @@
                                     </div>
                                 </div>
                             </div>
+                            </a>
                         @endforeach
                     @endif
 
@@ -222,38 +224,7 @@
                                 </div>
                             </div>
                             <button type="submit" class="btn-block">VOTE</button>
-                        </form>
-                    </div>
-                    <div class="col-md-4" style="box-shadow: 10px 10px 5px #888888;">
-                            <form>
-                            <div class="panel">
-                                <div class="panel-heading">
-                                    <h5> {{$polling->question}} </h5>
-                                </div>
-                                <hr class="sep">
-                                <div class="panel-body" style="text-align:left; padding-left:5vw;">
-                                    @foreach($polling->option as $o)
-                                        <input type="radio"> {{$o->answer}} <br>
-                                    @endforeach
-                                </div>
-                            </div>
-                            <button type="submit" class="btn-block">VOTE</button>
-                        </form>
-                    </div>
-                    <div class="col-md-4" style="box-shadow: 10px 10px 5px #888888;">
-                            <form>
-                            <div class="panel">
-                                <div class="panel-heading">
-                                    <h5> {{$polling->question}} </h5>
-                                </div>
-                                <hr class="sep">
-                                <div class="panel-body" style="text-align:left; padding-left:5vw;">
-                                    @foreach($polling->option as $o)
-                                        <input type="radio"> {{$o->answer}} <br>
-                                    @endforeach
-                                </div>
-                            </div>
-                            <button type="submit" class="btn-block">VOTE</button>
+                            <br>
                         </form>
                     </div>
                     @endforeach

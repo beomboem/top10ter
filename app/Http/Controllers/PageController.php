@@ -30,7 +30,8 @@ class PageController extends Controller
         
     	return redirect()->action('PageController@index');
     }
-    public function showArticles(){
-        return view('public.show-articles');        
+    public function showArticles($id){
+        $article=Article::find($id)->first();
+        return view('public.show-articles',compact('article'));        
     }
 }
