@@ -19,7 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/contact','ContactController@index');
+Route::get('/contact','PageController@contact');
+Route::post('/contact','PageController@sendMessage');
 
 // admin route
 // Route::group(['prefix' => 'admincp/admin'], function() {
@@ -33,4 +34,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
     Route::get('/polling/data','PollingController@data');
     Route::resource('/polling', 'PollingController');
     Route::get('/', 'DashboardController@index');
+    Route::get('/message/data','MessageController@data');
+    Route::resource('/message','MessageController');
 });

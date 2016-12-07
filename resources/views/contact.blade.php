@@ -10,18 +10,19 @@
 					<h5>Contact Us </h5>
 				</div>
 				<div class="panel-body">
-					<form>
+					<form method="post" action="{{url('/contact')}}">
+						{{csrf_field()}}
 					  	<div class="form-group">
 					    	<label for="name">Name</label>
-					    	<input type="text" class="form-control" id="name" placeholder="Name">
+					    	<input type="text" class="form-control" id="name" name="name" placeholder="Name">
 					  	</div>
 					  	<div class="form-group">
 					    	<label for="email">Email address</label>
-					    	<input type="email" class="form-control" id="email" placeholder="Email">
+					    	<input type="email" class="form-control" id="email" name="email" placeholder="Email">
 					  	</div>
 					  	<div class="form-group">
-					  		<label for="message">Your Message</label>
-					  		<textarea class="form-control" rows="3" id="message" placeholder="Your message here"></textarea>
+					  		<label for="content">Your Message</label>
+					  		<textarea class="form-control" rows="3" id="content" name="content" placeholder="Your message here"></textarea>
 					  	</div>
 					  	<button type="submit" class="btn btn-default">Submit</button>
 				  	</form>

@@ -85,7 +85,11 @@
     @yield('content')
 
     <!-- Scripts -->
+<<<<<<< HEAD
     <script src="{{asset('/js/app.js')}}"></script>
     <!--<script src="{{asset('assets/js/app.js')}}"></script>-->
+=======
+    <script src="{{asset('js/app.js')}}"></script>
+>>>>>>> e9bc962299f707d4d167d1abe1d311be3359d968
 </body>
 </html>
