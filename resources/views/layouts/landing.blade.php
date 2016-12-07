@@ -48,24 +48,49 @@
     <section class="main-header">
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
-                <div class="navbar-header">
+                <div class="navbar-header" style="width:18%;">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#"><img src="img/logo/logo-white.png" class="img-responsive" alt="logo"></a>
+                    <a class="navbar-brand" href="#"><img src="{{asset('img/logo/logo-white.png')}}" class="img-responsive" alt="logo"></a>
                 </div>
                 <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-1">
-                    <div class="col-md-8 col-xs-12 nav-wrap">
+                    <div class="col-md-9 col-xs-12 nav-wrap">
                         <ul class="nav navbar-nav">
-                            <li><a href="#welcome" class="page-scroll">Home</a></li>
-                            <li><a href="#articles" class="page-scroll">Articles</a></li>
-                            <li><a href="#portfolio" class="page-scroll">Polling</a></li>
-                            <li><a href="#team" class="page-scroll">About</a></li>
-                            <li><a href="#contact" class="page-scroll">Contact</a></li>
-                            <li><a href="" class="page-scroll">Login</a></li>
+                            <li><a href="{{url('/#welcome')}}" class="page-scroll">Home</a></li>
+                            <li><a href="{{url('/#articles')}}" class="page-scroll">Articles</a></li>
+                            <li><a href="{{url('/#portfolio')}}" class="page-scroll">Polling</a></li>
+                            <li><a href="{{url('/#team')}}" class="page-scroll">About</a></li>
+                            <li><a href="{{url('/#contact')}}" class="page-scroll">Contact</a></li>
+                            <!-- <li><a href="{{url('/login')}}" class="page-scroll">Login</a></li> -->
+                            <!-- <li><a href="{{url('/register')}}" class="page-scroll">Register</a></li> -->
+                            @if (Auth::guest())
+                                <li><a href="{{ url('/login') }}">Login</a></li>
+                                <li><a href="{{ url('/register') }}">Register</a></li>
+                            @else
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                        {{ Auth::user()->name }} <span class="caret"></span>
+                                    </a>
+
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li>
+                                            <a href="{{ url('/logout') }}"
+                                                onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                                Logout
+                                            </a>
+
+                                            <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                                {{ csrf_field() }}
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </li>
+                            @endif
                         </ul>
                     </div><!-- 
                     <div class="social-media hidden-sm hidden-xs">
