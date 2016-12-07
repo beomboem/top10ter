@@ -111,17 +111,17 @@
 	============================================= -->
     <section id="portfolio">
         <div class="container-fluid">
-            <h2>Our Work</h2>
+            <h2>POLLING</h2>
             <hr class="sep">
-            <p>Showcase Your Amazing Work With Us</p>
-            <div class="row">
+            <p>CHOOSE YOUR OWN TOPIC OF THE WEEK</p>
+            <!-- <div class="row">
                 <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
                     <a class="portfolio-box" href="img/portfolio/1.jpg" data-lightbox="image-1" data-title="Your caption">
                         <img src="img/portfolio/1.jpg" class="img-responsive" alt="1">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Category
+                                    
                                 </div>
                                 <div class="project-name">
                                     Project Name
@@ -204,7 +204,60 @@
                             </div>
                         </div>
                     </a>
-                </div>
+                </div> -->
+                @if($pollings->count()>0)
+                    @foreach($pollings as $polling)
+                    
+                    <div class="col-md-4" style="box-shadow: 10px 10px 5px #888888;">
+                            <form>
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <h5> {{$polling->question}} </h5>
+                                </div>
+                                <hr class="sep">
+                                <div class="panel-body" style="text-align:left; padding-left:5vw;">
+                                    @foreach($polling->option as $o)
+                                        <input type="radio"> {{$o->answer}} <br>
+                                    @endforeach
+                                </div>
+                            </div>
+                            <button type="submit" class="btn-block">VOTE</button>
+                        </form>
+                    </div>
+                    <div class="col-md-4" style="box-shadow: 10px 10px 5px #888888;">
+                            <form>
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <h5> {{$polling->question}} </h5>
+                                </div>
+                                <hr class="sep">
+                                <div class="panel-body" style="text-align:left; padding-left:5vw;">
+                                    @foreach($polling->option as $o)
+                                        <input type="radio"> {{$o->answer}} <br>
+                                    @endforeach
+                                </div>
+                            </div>
+                            <button type="submit" class="btn-block">VOTE</button>
+                        </form>
+                    </div>
+                    <div class="col-md-4" style="box-shadow: 10px 10px 5px #888888;">
+                            <form>
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <h5> {{$polling->question}} </h5>
+                                </div>
+                                <hr class="sep">
+                                <div class="panel-body" style="text-align:left; padding-left:5vw;">
+                                    @foreach($polling->option as $o)
+                                        <input type="radio"> {{$o->answer}} <br>
+                                    @endforeach
+                                </div>
+                            </div>
+                            <button type="submit" class="btn-block">VOTE</button>
+                        </form>
+                    </div>
+                    @endforeach
+                @endif
             </div>
         </div>
     </section>

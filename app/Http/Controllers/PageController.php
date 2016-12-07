@@ -8,16 +8,19 @@ use App\Message;
 
 use App\Article;
 
+use App\Polling;
+
 class PageController extends Controller
 {
     public function index(){
         $articles=Article::all();
-        return view('public.index',compact('articles'));
+        $pollings=Polling::all();
+        return view('public.index',compact('articles','pollings'));
     }
-    public function contact(){
+    /*public function contact(){
         $articles=Article::all();
-        return view('public.index',compact('articles'));        
-    }
+        return view('public.index',compact('articles','pollings'));        
+    }*/
     public function sendMessage(Request $request){
     	Message::create([
     		'name'=>$request->name,
@@ -25,7 +28,7 @@ class PageController extends Controller
     		'content'=>$request->content
     	]);
         
-    	return redirect()->action('PageController@contact');
+    	return redirect()->action('PageController@index');
     }
     public function showArticles(){
         return view('public.show-articles');        

@@ -20,7 +20,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/contact','PageController@contact');
+//Route::get('/contact','PageController@contact');
 Route::post('/contact','PageController@sendMessage');
 
 // admin route
