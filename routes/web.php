@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('public.index');
-});
+});*/
+Route::get('/','PageController@index');
 
 Auth::routes();
 

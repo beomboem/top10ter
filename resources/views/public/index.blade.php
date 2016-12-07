@@ -48,10 +48,23 @@
                 <div class="row wow fadeInUp" data-wow-delay=".3s">
 
 
+                    @if($articles->count()>0)
+                        @foreach($articles as $article)
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="col-md-7" style="overflow:hidden;">
+                                        <img src="{{ $article->article_detail->first()->cover }}" style="height:15vw;object-fit:cover;">
+                                    </div>
+                                    <div class="col-md-5" style="text-align:left;">
+                                        <p style="color:white;"><b>{{$article->title}}</b></p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
 
 
-
-                    <div class="col-md-4">
+                    <!-- <div class="col-md-4">
                         <div class="media-left">
                             <img src="images/Pakistan Pollution.jpg">
                         </div>
@@ -89,7 +102,7 @@
 
                         </div>
                         
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -347,17 +360,18 @@ work only with <span>Rise</span>.<i class="fa fa-quote-right right fa-2x"></i></
             <hr class="sep">
             <p>Get In Touch</p>
             <div class="col-md-6 col-md-offset-3 wow fadeInUp" data-wow-delay=".3s">
-                <form>
+                <form method="post" action="{{url('/contact')}}">
+                    {{csrf_field()}}
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Name" placeholder="Name">
+                        <input type="text" class="form-control" id="Name" name="name" placeholder="Name">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="Email" placeholder="Email">
+                        <input type="text" class="form-control" id="Email" name="email" placeholder="Email">
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" rows="3" placeholder="Message"></textarea>
+                        <textarea class="form-control" rows="3" placeholder="Message" name="content"></textarea>
                     </div>
-                    <a href="#" class="btn-block">Send</a>
+                    <button type="submit" class="btn-block">Submit</button>
                 </form>
             </div>
         </div>
