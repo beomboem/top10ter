@@ -6,32 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Top10Ter</title>
 
-    <!-- Fonts -->
-    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous"> --}}
-    {{-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700"> --}}
-
     <!-- Styles -->
-    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> --}}
     <link href="{{ asset('assets/css/jquery-ui-1.10.1.custom.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/bucket-ico-fonts.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/bootstrap-reset.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/plug-ins/3cfcc339e89/integration/bootstrap/3/dataTables.bootstrap.css">
     <link href="{{ asset('assets/css/morris.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/style-responsive.css') }}" rel="stylesheet">
-    {{-- <link href="{{ asset('assets/css/c3.css') }}" rel="stylesheet"> --}}
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
     <link href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" rel="stylesheet">
     <link href="{{ asset('assets/css/style-admin.css') }}" rel="stylesheet">
 </head>
+
 <body id="app-layout">    
     <section id="container">
         <!--header start-->
         <header class="header fixed-top clearfix">
             <!--logo start-->
             <div class="brand">
-
                 <a href="{{ url('/admin') }}" class="logo">
                     <img src="{{asset('img/logo/logo-white.png')}}" width="130px"alt="">
                 </a>
@@ -43,9 +36,6 @@
             <div class="top-nav clearfix">
                 <!--search & user info start-->
                 <ul class="nav pull-right top-menu">
-                    <li>
-                        <input type="text" class="form-control search" placeholder=" Search">
-                    </li>
                     <!-- user-->
                     @if (Auth::guest())
                     <li>
@@ -64,7 +54,6 @@
                     <li>
                         <a href="{{ url('/admin/logout') }}">
                             <i class="fa fa-sign-out"></i>
-                            {{-- <span class="username">Log Out</span> --}}
                         </a>
                     </li>
                     @endif
@@ -85,25 +74,31 @@
                             {{-- <a class="active" href="{{ url('admin/') }}"> --}}
                             <a href="{{ url('admin/') }}">
                                 <i class="fa fa-dashboard"></i>
-                                <span>dashboard</span>
+                                <span>Dashboard</span>
                             </a>
                         </li>
                         <li class="sub-menu">
                             <a href="{{ url('admin/article') }}">
                                 <i class="fa fa-users"></i>
-                                <span>article</span>
+                                <span>Article</span>
                             </a>
                         </li>
                         <li class="sub-menu">
                             <a href="{{ url('admin/polling') }}">
                                 <i class="fa fa-newspaper-o"></i>
-                                <span>polling</span>
+                                <span>Polling</span>
                             </a>
                         </li>
                         <li class="sub-menu">
                             <a href="{{ url('admin/message') }}">
                                 <i class="fa fa-envelope"></i>
-                                <span>message</span>
+                                <span>Message</span>
+                            </a>
+                        </li>
+                        <li class="sub-menu">
+                            <a href="{{ url('admin/message') }}">
+                                <i class="fa fa-info"></i>
+                                <span>About</span>
                             </a>
                         </li>
                     </div>

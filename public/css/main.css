@@ -384,96 +384,38 @@ Articles Style
 }
 #articles .articles-box .col-md-4 {
   margin-bottom: 20px;
-}/*
-#articles .articles-box .col-md-4 .media-left,
-#articles .articles-box .col-md-4 .media-right,
-#articles .articles-box .col-md-4 .media-body {
-  padding-right: 30px;
-  vertical-align: baseline;
 }
-#articles .articles-box .col-md-4 .media-left p,
-#articles .articles-box .col-md-4 .media-right p,
-#articles .articles-box .col-md-4 .media-body p {
-  text-align: left;
-}
-#articles .articles-box .col-md-4 .media-left h3,
-#articles .articles-box .col-md-4 .media-right h3,
-#articles .articles-box .col-md-4 .media-body h3 {
-  text-transform: uppercase;
+#articles .articles-box a{
   color: #fff;
-  text-align: left;
+  font-weight: bold;
 }
-#articles .articles-box .col-md-4 .media-left span,
-#articles .articles-box .col-md-4 .media-right span,
-#articles .articles-box .col-md-4 .media-body span {
-  font-size: 36px;
-  color: #fff;
-}*/
+#articles .articles-box a:hover{
+  color: #7e7e8a;
+}
+#articles .articles-box .btn-block{
+  border: 2px solid #fff;
+  width: 10vw;
+  font-size: 10pt;
+  margin-top:2vw;
+}
 
     /* ==========================================================================
-Portfolio Style
+Polling Style
 ========================================================================== */
-#portfolio {
+#polling {
   padding: 60px 0;
   text-align: center;
   background-color: #e2e2e2;
 }
-#portfolio h2 {
+#polling h2 {
   text-transform: uppercase;
 }
-#portfolio p {
+#polling p {
   margin-bottom: 40px;
 }
-#portfolio .container-fluid {
-  padding-left: 0;
-  padding-right: 0;
-}
-#portfolio .container-fluid .col-lg-4 {
-  padding-left: 0;
-  padding-right: 0;
-}
-#portfolio .portfolio-box {
-  display: block;
-  position: relative;
-  margin: 0 auto;
-  max-width: 650px;
-}
-#portfolio .portfolio-box .portfolio-box-caption {
-  display: block;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  color: #fff;
-  opacity: 0;
-  background: rgba(13, 13, 13, 0.6);
-  -moz-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
-#portfolio .portfolio-box .portfolio-box-caption .portfolio-box-caption-content {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  text-align: center;
-  transform: translateY(-50%);
-}
-#portfolio .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category,
-#portfolio .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
-  padding: 0 15px;
-}
-#portfolio .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category {
-  text-transform: uppercase;
-  font-size: 22px;
-  font-weight: 700;
-}
-#portfolio .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
-  font-size: 18px;
-}
-#portfolio .portfolio-box:hover .portfolio-box-caption {
-  opacity: 1;
+
+#polling button{
+  font-size: 10pt;
 }
 
     /* ==========================================================================

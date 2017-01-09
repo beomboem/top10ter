@@ -17,13 +17,6 @@
                     <!-- <a class="btn btn-transparent" href="#">Learn More</a><a class="btn btn-light" href="#">Buy Now</a> -->
                 </div>
             </div>
-            <!-- <div class="item" style="background-image: url(img/sliders/Slide3.jpg)">
-                <div class="caption">
-                    <h6>Branding / Design / Creativty</h6>
-                    <h1>Clean <span>Code</span></h1>
-                    <a class="btn btn-transparent" href="#">Learn More</a><a class="btn btn-light" href="#">Buy Now</a>
-                </div>
-            </div> -->
         </div>
 
     <!-- Welcome
@@ -45,171 +38,37 @@
             <hr class="light-sep">
             <div class="articles-box">
                 <div class="row wow fadeInUp" data-wow-delay=".3s">
-
-
-                    @if($articles->count()>0)
-                        @foreach($articles as $article)
-                            <a href="{{url('showArticle',$article->id)}}">
-                            <div class="col-md-4">
-                                <div class="row">
-                                    <div class="col-md-7" style="overflow:hidden;">
-                                        <img src="{{ $article->article_detail->first()->cover }}" style="height:15vw;object-fit:cover;">
-                                    </div>
-                                    <div class="col-md-5" style="text-align:left;">
-                                        <p style="color:white;"><b>{{$article->title}}</b></p>
-                                    </div>
-                                </div>
-                            </div>
-                            </a>
-                        @endforeach
-                    @endif
-
-
-                    <!-- <div class="col-md-4">
-                        <div class="media-left">
-                            <img src="images/Pakistan Pollution.jpg">
-                        </div>
-                        <div class="media-body">
-                            <p>10 Negara dengan Tingkat Polusi Udara Tertinggi</p>
-                        </div>
-                    </div>
+                @if($articles->count()>0)
+                    @foreach($articles as $article)
                     <div class="col-md-4">
-                        <div class="media-left">
-                            <img src="images/apollo_11.jpg">
-                        </div>
-                        <div class="media-body">
-                            <p>10 Petualangan Manusia yang Akan Terus Dikenang Sepanjang Masa</p>
-                        </div>
-
-                    </div>
-                    <div class="col-md-4">
-                        <div class="media-left">
-                            <img src="images/Fahrenheit.jpg">
-                        </div>
-                        <div class="media-body">
-                            <p>10 Film Dokumenter yang Menggemparkan Dunia</p>
-                        </div>
-
-                    </div>
-
-                    <div class="row wow fadeInUp" data-wow-delay=".6s">
-                        <div class="col-md-4">
-                            <div class="media-left">
-                                <img src="images/luwak_01.jpg">
+                        <div class="row">
+                            <div class="col-md-7" style="overflow:hidden;">
+                                <img src="{{ $article->article_detail->first()->cover }}" style="height:15vw;object-fit:cover;">
                             </div>
-                            <div class="media-body">
-                                <p>10 Kopi Termahal di Dunia</p>
+                            <div class="col-md-5" style="text-align:left;">
+                                <a href="{{url('showArticle',$article->id)}}">
+                                    {{$article->title}}
+                                </a>
                             </div>
-
                         </div>
-                        
-                    </div> -->
+                    </div>
+                    @endforeach
+                @endif
                 </div>
+                <button type="submit" class=" center-block btn-block">READ MORE</button>
             </div>
         </div>
     </section>
 
     <!-- Portfolio
 	============================================= -->
-    <section id="portfolio">
+    <section id="polling">
         <div class="container">
             <h2>POLLING</h2>
             <hr class="sep">
             <p>CHOOSE YOUR OWN TOPIC OF THE WEEK</p>
-            <!-- <div class="row">
-                <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
-                    <a class="portfolio-box" href="img/portfolio/1.jpg" data-lightbox="image-1" data-title="Your caption">
-                        <img src="img/portfolio/1.jpg" class="img-responsive" alt="1">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
-                    <a href="img/portfolio/2.jpg" class="portfolio-box" data-lightbox="image-2" data-title="Your caption">
-                        <img src="img/portfolio/2.jpg" class="img-responsive" alt="2">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
-                    <a href="img/portfolio/3.jpg" class="portfolio-box" data-lightbox="image-3" data-title="Your caption">
-                        <img src="img/portfolio/3.jpg" class="img-responsive" alt="3">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
-                    <a href="img/portfolio/4.jpg" class="portfolio-box" data-lightbox="image-4" data-title="Your caption">
-                        <img src="img/portfolio/4.jpg" class="img-responsive" alt="4">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
-                    <a href="img/portfolio/5.jpg" class="portfolio-box" data-lightbox="image-5" data-title="Your caption">
-                        <img src="img/portfolio/5.jpg" class="img-responsive" alt="5">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
-                    <a href="img/portfolio/6.jpg" class="portfolio-box" data-lightbox="image-6" data-title="Your caption">
-                        <img src="img/portfolio/6.jpg" class="img-responsive" alt="6">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div> -->
                 @if($pollings->count()>0)
                     @foreach($pollings as $polling)
-                    
                     <div class="col-md-4" style="box-shadow: 10px 10px 5px #888888; background-color:white;">
                             <form>
                             <div class="panel">
@@ -223,7 +82,14 @@
                                     @endforeach
                                 </div>
                             </div>
-                            <button type="submit" class="btn-block">VOTE</button>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <button type="submit" class="btn-block">VOTE</button>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <button type="submit" class="btn-block">VIEW RESULT</button>
+                                </div>
+                            </div>
                             <br>
                         </form>
                     </div>

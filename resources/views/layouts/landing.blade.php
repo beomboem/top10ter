@@ -62,7 +62,7 @@
                         <ul class="nav navbar-nav">
                             <li><a href="{{url('/#welcome')}}" class="page-scroll">Home</a></li>
                             <li><a href="{{url('/#articles')}}" class="page-scroll">Articles</a></li>
-                            <li><a href="{{url('/#portfolio')}}" class="page-scroll">Polling</a></li>
+                            <li><a href="{{url('/#polling')}}" class="page-scroll">Polling</a></li>
                             <li><a href="{{url('/#fun-facts')}}" class="page-scroll">About</a></li>
                             <li><a href="{{url('/#contact')}}" class="page-scroll">Contact</a></li>
                             <!-- <li><a href="{{url('/login')}}" class="page-scroll">Login</a></li> -->
