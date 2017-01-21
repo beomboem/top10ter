@@ -19,6 +19,7 @@ Route::get('/showArticle/{id}','PageController@showArticles');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+Route::get('/profile', 'PageController@profile');
 
 //Route::get('/contact','PageController@contact');
 Route::post('/contact','PageController@sendMessage');

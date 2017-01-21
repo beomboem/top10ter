@@ -17,6 +17,9 @@ class PageController extends Controller
         $pollings=Polling::all();
         return view('public.index',compact('articles','pollings'));
     }
+    public function profile(){
+        return view('public.profile');
+    }
     /*public function contact(){
         $articles=Article::all();
         return view('public.index',compact('articles','pollings'));        
