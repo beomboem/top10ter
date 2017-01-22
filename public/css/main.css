@@ -734,21 +734,24 @@ Media Queries Style
 /*=====Detail Articles Page=====*/
 #articles-detail{
   padding: 100px 0;
+}
+
+#articles-detail h2{
   text-align: center;
 }
 
-.articles-description{
+#articles-detail .articles-description{
   text-align: justify;
 }
 
-.articles-number {
+#articles-detail .articles-number {
     width: 10%;
     margin-right: -50px;
     padding-top: 10px;
     z-index: 1;
 }
 
-.articles-holder {
+#articles-detail .articles-holder {
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 50px;
@@ -759,8 +762,34 @@ Media Queries Style
     background-color: #f7f7f7;
 }
 
-.articles-description h5{
+#articles-detail .articles-description h5{
   font-weight: bold;
+}
+
+#articles-detail #comment-box{
+  margin-top: 20vh;
+}
+
+#articles-detail #comment-box div {
+    margin: 1vh 0;
+}
+
+#articles-detail #comment-box .user-comment-photo img{
+  width: 100%;
+  height: 65px;
+  object-fit:cover;
+}
+
+#articles-detail #comment-box .user-comment small{
+  color:#989898;
+}
+
+#articles-detail #comment-box .user-comment p{
+  font-size: 14px;
+}
+
+#articles-detail #comment-box .comment-button{
+  margin-top: 5vh;
 }
 
 /* ===== PROFILE ===== */

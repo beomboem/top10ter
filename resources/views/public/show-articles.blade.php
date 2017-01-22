@@ -145,6 +145,41 @@
 					</div>
 				</div>
 			</div>
+
+			<!--comment box-->
+			<div class="row" id="comment-box">
+				<div class="form-group">
+					{!! Form::label('comment', 'Comment :') !!}
+                    <div class="row">
+                    	<div class="col-md-1 user-comment-photo">
+                    		<img src="{{asset('images/profile_test.jpg')}}">
+                    	</div>
+                    	<div class="col-md-11 user-comment">
+                    		<b>Nama</b>	- <small>22-1-2017</small>
+                    		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Negat enim summo bono afferre incrementum diem. Sed emolumenta communia esse dicuntur, recte autem facta et peccata non habentur communia. Bonum integritas corporis: misera debilitas.</p>
+                    	</div>
+                    </div>
+                    <div class="row">
+                    	<div class="col-md-1 user-comment-photo">
+                    		<img src="{{asset('images/profile_test.jpg')}}">
+                    	</div>
+                    	<div class="col-md-11 user-comment">
+                    		<b>Nama</b>	- <small>22-1-2017</small>
+                    		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Negat enim summo bono afferre incrementum diem. Sed emolumenta communia esse dicuntur, recte autem facta et peccata non habentur communia. Bonum integritas corporis: misera debilitas.</p>
+                    	</div>
+                    </div>
+				</div>
+
+				<div class="col-md-10">
+					<div class="form-group">
+                        {!! Form::textarea('content', null, array('class' => 'form-control', 'placeholder'=>'Enter Your Comment', 'id' => 'description_box')) !!}
+                    </div>
+				</div>
+				<div class=" col-md-2 comment-button">
+					<button class="btn-block">Comment</button>
+				</div>
+			</div>
+
 		</div>
 	</section>
 	@endif
