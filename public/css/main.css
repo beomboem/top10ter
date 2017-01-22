@@ -762,3 +762,60 @@ Media Queries Style
 .articles-description h5{
   font-weight: bold;
 }
+
+/* ===== PROFILE ===== */
+#profile{
+  margin-top: 25vh; 
+  margin-bottom: 5vh;
+}
+#profile .photo-profile img{
+  width: 165px;
+  height: 165px;
+  border-radius: 50%;
+  object-fit:cover;
+}
+
+#profile .profile-data{
+  text-align: center;
+}
+
+#profile .profile-detail .nav-tabs > li.active > a{
+  color: #24242a;
+  font-weight: bold;
+}
+
+#profile .profile-detail .nav-tabs > li > a{
+  color: #868686;
+}
+
+#profile .profile-detail #myArticles, 
+#profile .profile-detail #myPollings{
+  margin-top: 2vh;
+}
+
+#profile .profile-detail #myArticles img{
+  width: 100%;
+}
+
+#profile #myArticles .data-myArticle,
+#profile #myPollings .data-myPolling{
+  padding: 2vw;
+}
+
+#profile #myArticles a,
+#profile #myPollings a{
+  color: black;
+}
+
+#profile #myArticles a:hover,
+#profile #myPollings a:hover{
+  color: #adadad;
+}
+
+#profile #myArticles .btn-block,
+#profile #myPollings .btn-block{
+  padding: 10px 0;
+  font-size: 15px;
+  border: 2px solid #24242a;
+}
+    
