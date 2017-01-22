@@ -12,6 +12,10 @@ use App\Polling;
 
 use App\Option;
 
+use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+
 class PageController extends Controller
 {
     public function index(){
@@ -21,6 +25,13 @@ class PageController extends Controller
     }
     public function profile(){
         return view('public.profile');
+    }
+    public function addArticle(){
+        $author = Auth::user()->name;
+        return view('public.add-article',compact('author'));
+    }
+    public function addPolling(){
+        return view('public.add-polling');
     }
     /*public function contact(){
         $articles=Article::all();

@@ -61,13 +61,11 @@
                     <div class="col-md-10 col-xs-12 nav-wrap">
                         <ul class="nav navbar-nav">
                             <li><a href="{{url('/#welcome')}}" class="page-scroll">Home</a></li>
-                            <li><a href="{{url('/profile')}}" class="page-scroll">Profile</a></li>
                             <li><a href="{{url('/#articles')}}" class="page-scroll">Articles</a></li>
                             <li><a href="{{url('/#polling')}}" class="page-scroll">Polling</a></li>
                             <li><a href="{{url('/#fun-facts')}}" class="page-scroll">About</a></li>
                             <li><a href="{{url('/#contact')}}" class="page-scroll">Contact</a></li>
                             
-                            <!-- <li><a href="{{url('/register')}}" class="page-scroll">Register</a></li> -->
                             @if (Auth::guest())
                                 <li><a href="{{ url('/login') }}">Login</a></li>
                                 <li><a href="{{ url('/register') }}">Register</a></li>
@@ -78,10 +76,12 @@
                                     </a>
 
                                     <ul class="dropdown-menu" role="menu">
+                                        <li><a href="{{url('/profile')}}"><i class="fa fa-user" aria-hidden="true"></i> Profile</a></li>
                                         <li>
                                             <a href="{{ url('/logout') }}"
                                                 onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">
+                                                <i class="fa fa-sign-out" aria-hidden="true"></i>
                                                 Logout
                                             </a>
 

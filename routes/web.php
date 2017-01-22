@@ -20,6 +20,8 @@ Auth::routes();
 
 //Route::get('/home', 'HomeController@index');
 Route::get('/profile', 'PageController@profile');
+Route::get('/addArticle', 'PageController@addArticle');
+Route::get('/addPolling', 'PageController@addPolling');
 
 //Route::get('/contact','PageController@contact');
 Route::post('/contact','PageController@sendMessage');
