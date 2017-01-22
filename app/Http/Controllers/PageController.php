@@ -45,4 +45,10 @@ class PageController extends Controller
         $selectedOption->count++;
         $selectedOption->save();
     }
+    public function submitComment(){
+        //insert new comment to database
+    }
+    public function deleteComment(){
+        //delete comment from database
+    }
 }
