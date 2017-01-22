@@ -22,7 +22,7 @@ Route::get('/home', 'HomeController@index');
 
 //Route::get('/contact','PageController@contact');
 Route::post('/contact','PageController@sendMessage');
-
+Route::post('/submitPoll','PageController@submitPoll');
 // admin route
 Route::group(['prefix' => 'admin'], function() {
     Route::get('logout','Auth\LoginController@logout');

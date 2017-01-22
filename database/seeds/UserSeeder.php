@@ -17,6 +17,6 @@ class UserSeeder extends Seeder
         	'password'=>bcrypt('admin123'),
         	'email'=>'admin@topter.com',
             'type'=>'admin'
-        	]);
+        ]);
     }
 }

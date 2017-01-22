@@ -10,6 +10,8 @@ use App\Article;
 
 use App\Polling;
 
+use App\Option;
+
 class PageController extends Controller
 {
     public function index(){
@@ -31,7 +33,13 @@ class PageController extends Controller
     	return redirect()->action('PageController@index');
     }
     public function showArticles($id){
-        $article=Article::find($id)->first();
+        $article=Article::find($id);
+        //$article=Article::find($id)->first();
         return view('public.show-articles',compact('article'));        
+    }
+    public function submitPoll(Request $request){
+        $selectedOption=Option::find($request->poll);
+        $selectedOption->count++;
+        $selectedOption->save();
     }
 }

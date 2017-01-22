@@ -1,5 +1,7 @@
 @extends('layouts.landing')
-
+@section('head')
+<meta name="csrf-token" content="{{ csrf_token() }}"> 
+@endsection
 @section('content')
 <!--SLIDER-->
         <div id="owl-hero" class="owl-carousel owl-theme">
@@ -13,7 +15,7 @@
             <div class="item" style="background-image: url(img/sliders/Slide2.jpg)">
                 <div class="caption">
                     <h3 style="color:white">10 Facts</h3>
-                    <h1>Unique | Entertain</h1>
+                    <h1>Unique | Entertaining</h1>
                     <!-- <a class="btn btn-transparent" href="#">Learn More</a><a class="btn btn-light" href="#">Buy Now</a> -->
                 </div>
             </div>
@@ -66,11 +68,12 @@
         <div class="container">
             <h2>POLLING</h2>
             <hr class="sep">
+            <div>
             <p>CHOOSE YOUR OWN TOPIC OF THE WEEK</p>
                 @if($pollings->count()>0)
                     @foreach($pollings as $polling)
-                    <div class="col-md-4" style="box-shadow: 10px 10px 5px #888888; background-color:white;">
-                            <form>
+                    <div class="col-md-4" style="box-shadow: 10px 10px 5px #888888;margin:0 10px; background-color:white;">
+                        <form>
                             <div class="panel">
                                 <div class="panel-heading">
                                     <h5> {{$polling->question}} </h5>
@@ -78,13 +81,13 @@
                                 <hr class="sep" style="margin-top:0; margin-bottom:0;">
                                 <div class="panel-body" style="text-align:left; padding-left:2vw;">
                                     @foreach($polling->option as $o)
-                                        <input type="radio"> {{$o->answer}} <br>
+                                        <input type="radio" name="poll" value="{{$o->id}}"> {{$o->answer}} <br>
                                     @endforeach
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <button type="submit" class="btn-block">VOTE</button>
+                                    <button type="submit" onclick="submitPoll();" class="btn-block">VOTE</button>
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-6">
                                     <button type="submit" class="btn-block">VIEW RESULT</button>
@@ -267,5 +270,29 @@ look into <span>TOP10TER</span> everyday.<i class="fa fa-quote-right right fa-2x
 @endsection
 
 @section('customjs')
-
+<script type="text/javascript">
+    
+    function submitPoll(){
+        var selected=$('input[name=poll]:checked').val();
+        //console.log(selected);
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+              url: "{{action('PageController@submitPoll')}}",
+              type: 'post',
+              data: {'poll':selected},
+              success:function(response){
+                  location.reload();
+                  
+              },
+              error:function(jqXHR, textStatus, errorThrown){
+                  alert('error');
+              }
+        });
+    }
+    
+</script>
 @endsection
