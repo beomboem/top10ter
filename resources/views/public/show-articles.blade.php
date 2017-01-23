@@ -5,6 +5,9 @@
 	<section id="articles-detail">
 		<div class="container">
 			<h2 style="margin-bottom:50px; font-weight:bold">{{$article->title}}</h2>
+			<div class="rating text-right">
+				Rating : 9.2
+			</div>
 			<div class="row">	
 				<div class="col-md-2 articles-number">
 					<img src="{{asset('img/number/num-10.png')}}" class="img-responsive" alt="number">
@@ -145,7 +148,11 @@
 					</div>
 				</div>
 			</div>
-
+			<div class="rating-box">
+				<a href="" title="I like this article"><i class="fa fa-thumbs-up fa-2x" aria-hidden="true"></i></a>
+				<a href="" title="I dislike this article"><i class="fa fa-thumbs-down fa-2x" aria-hidden="true"></i></a>
+				<a href="" title="Share this article"><i class="fa fa-share-alt fa-2x" aria-hidden="true"></i></a>
+			</div>
 			<!--comment box-->
 			<div class="row" id="comment-box">
 				<div class="form-group">

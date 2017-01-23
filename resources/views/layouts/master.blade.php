@@ -115,10 +115,8 @@
             </section>
 
             <!-- JavaScripts -->
-            {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script> --}}
             <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
             <script src="{{ asset('assets/js/jquery-ui-1.10.1.custom.min.js') }}"></script>
-            {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> --}}
             <script type="text/javascript" src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
             <script src="{{ asset('assets/js/vue.js') }}"></script>
             
@@ -126,8 +124,6 @@
             <script src="{{ asset('assets/js/jquery.scrollTo.min.js') }}"></script>
             <script src="{{ asset('assets/js/jquery.slimscroll.js') }}"></script>
             <script src="{{ asset('assets/js/jquery.nicescroll.js') }}"></script>
-            {{-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script> --}}
-            {{-- <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script> --}}
             <script src="{{ asset('assets/js/dashboard.js') }}"></script>
             <script src="{{ asset('assets/js/jquery.customSelect.min.js') }}"></script>
             <script src="{{ asset('assets/js/jquery.scrollTo.min.js') }}"></script>

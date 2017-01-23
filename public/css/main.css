@@ -792,6 +792,21 @@ Media Queries Style
   margin-top: 5vh;
 }
 
+#articles-detail .rating-box{
+  margin-top: 5vh;
+}
+
+#articles-detail .rating-box i{
+  padding: 0 2vw;
+}
+#articles-detail .rating-box a{
+  color: black;
+}
+
+#articles-detail .rating-box a:hover{
+  color: #adadad;
+}
+
 /* ===== PROFILE ===== */
 #profile{
   margin-top: 25vh; 
