@@ -149,42 +149,50 @@
 			<!--comment box-->
 			<div class="row" id="comment-box">
 				<div class="form-group">
+				
 					{!! Form::label('comment', 'Comment :') !!}
-                    <div class="row">
-                    	<div class="col-md-1 user-comment-photo">
-                    		<img src="{{asset('images/profile_test.jpg')}}">
-                    	</div>
-                    	<div class="col-md-11 user-comment">
-                    		<b>Nama</b>	- <small>22-1-2017</small>
-                    		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Negat enim summo bono afferre incrementum diem. Sed emolumenta communia esse dicuntur, recte autem facta et peccata non habentur communia. Bonum integritas corporis: misera debilitas.</p>
-                    	</div>
-                    </div>
-                    <div class="row">
-                    	<div class="col-md-1 user-comment-photo">
-                    		<img src="{{asset('images/profile_test.jpg')}}">
-                    	</div>
-                    	<div class="col-md-11 user-comment">
-                    		<b>Nama</b>	- <small>22-1-2017</small>
-                    		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Negat enim summo bono afferre incrementum diem. Sed emolumenta communia esse dicuntur, recte autem facta et peccata non habentur communia. Bonum integritas corporis: misera debilitas.</p>
-                    	</div>
-                    </div>
-				</div>
+					@foreach ($comments as $comment)
+						<div class="row">
+	                    	<div class="col-md-1 user-comment-photo">
+	                    		<img src="{{asset('images/profile_test.jpg')}}">
+	                    	</div>
+	                    	<div class="col-md-11 user-comment">
+	                    		<b>{{$comment->user->name}}</b>	- <small>{{$comment->created_at}}</small>
+	                    		@if ($comment->user->id == Auth::user()->id)
+		                            <button class="btn btn-xs" specification="button" onclick="showModalDelete({{$comment->id}})">
+		                                <span class="fa fa-trash"></span>
+		                            </button>
+			                    @endif
+	                    		<p>{{$comment->comment}}</p>
+	                    	</div>
 
+	                    </div>
+	                    
+					@endforeach
+				{!! Form::open(['action' => ['PageController@submitComment',$article->id], 'files' => 'true']) !!}
 				<div class="col-md-10">
 					<div class="form-group">
-                        {!! Form::textarea('content', null, array('class' => 'form-control', 'placeholder'=>'Enter Your Comment', 'id' => 'description_box')) !!}
+					
+                        {!! Form::textarea('content', null, array('class' => 'form-control', 'placeholder'=>'Enter Your Comment', 'id' => 'description_box','required')) !!}
                     </div>
 				</div>
 				<div class=" col-md-2 comment-button">
 					<button class="btn-block">Comment</button>
 				</div>
+
+                {!! Form::close() !!}
 			</div>
 
 		</div>
 	</section>
 	@endif
 @endsection
-
+@include('modal-delete')
 @section('customjs')
-
+<script type="text/javascript">
+    function showModalDelete(id){
+        $('#modalDelete').modal('show');
+        $('#modalDeleteForm').attr('action', '{{url("/showArticle")}}/'+id);
+    }
+</script>
 @endsection

@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                {!! Form::open(['action' => 'Admin\ArticleController@store', 'files' => 'true']) !!}
+                {!! Form::open(['action' => 'Admin\ArticleController@store','files' => 'true']) !!}
                 <div class="panel-heading wht-bg">Add Article</div>
 
                 <div class="panel-body">

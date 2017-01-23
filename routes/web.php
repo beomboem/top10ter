@@ -16,6 +16,8 @@
 });*/
 Route::get('/','PageController@index');
 Route::get('/showArticle/{id}','PageController@showArticles');
+Route::post('/showArticle/{id}','PageController@submitComment');
+Route::delete('/showArticle/{id}','PageController@deleteComment');
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index');
