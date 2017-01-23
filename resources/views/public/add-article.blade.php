@@ -5,7 +5,7 @@
 		<div class="container">
 			<div class="row">
 		        <div class="col-md-10 col-md-offset-1">
-		                {{--{!! Form::open(['action' => 'Admin\ArticleController@store', 'files' => 'true']) !!}--}}
+		                {!! Form::open(['action' => 'PageController@submitNewArticle', 'files' => 'true']) !!}
 		                <h2><b>Add Article</b></h2>
 
 		                <div class="panel-body">
@@ -215,7 +215,7 @@
 		           <div class="form-group">
 		               {!! Form::submit('Submit', ['class' => 'btn btn-primary form-control']) !!}
 		           </div>
-		           {{--{!! Form::close() !!}--}}
+		           {!! Form::close() !!}
 		       	</div>
    </div>
 		</div>

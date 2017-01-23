@@ -18,13 +18,18 @@
                 <div class="row">
                     <div class="col-md-12">
                         <table id="datatable" class="table table-bordered table-striped">
-                            <col width="40%"></col>
+                            <col width="20%"></col>
                             <col width="10%"></col>
                             <col width="40%"></col>
+                            <col width="10%"></col>
+                            <col width="10%"></col>
+                            <col width="10%"></col>
                             <thead>
                                 <td>Title</td>
                                 <td>Author</td>
                                 <td>Content</td>
+                                <td>Status</td>
+                                <td>Submitted By</td>
                                 <td>Action</td>
                             </thead>
                              
@@ -33,10 +38,25 @@
                                 <td> {{ $article->title }} </td>
                                 <td> {{ $article->author }} </td>
                                 <td> {!! nl2br($article->content) !!} </td>
+                                <td> @if(isset($article->status)) {{ title_case($article->status)}} @endif</td>
+                                <td> @if(isset($article->submitted_by)) {{ App\User::find($article->submitted_by)->name}} @endif</td>
                                 <td>
                                     {{-- <button class="btn btn-xs" specification="button" onclick="showModalDetail({{$article->id}})">
                                         <span class="fa fa-eye"></span>
                                     </button> --}}
+                                    @if($article->status == 'submitted')
+                                    <a href="{{ action('Admin\ArticleController@approve',$article->id) }}">
+                                        <button class="btn btn-xs btn-info" style="width:70px">
+                                            Approve
+                                        </button><br><br>
+                                    </a>
+                                    <a href="{{ action('Admin\ArticleController@reject',$article->id) }}">
+                                        <button class="btn btn-xs btn-danger" style="width:70px">
+                                            Reject
+                                        </button><br><br>
+                                    </a>
+
+                                    @endif
                                     <a href="{{ action('Admin\ArticleController@edit',$article->id) }}">
                                         <button class="btn btn-xs" specification="button">
                                             <span class="fa fa-edit"></span>

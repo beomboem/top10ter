@@ -13,7 +13,7 @@
 					</div>
 				</div>
 				<div class="profile-detail col-md-10">
-					<p class="text-right">Points : 99</p>
+					<p class="text-right">Points : {{Auth::user()->points}}</p>
 					<!-- Nav tabs -->
 					<ul class="nav nav-tabs" role="tablist">
 						<li role="presentation" class="active"><a href="#myArticles" aria-controls="myArticles" role="tab" data-toggle="tab">My Articles</a></li>
@@ -25,34 +25,22 @@
 					    <div role="tabpanel" class="tab-pane active" id="myArticles">
 					    	<div class="container">
 					    		<a href="{{ url('/addArticle') }}" type="button" class="btn-block text-center" style="width:25%; color:white">Add new article</a>
-					    		<div class="row data-myArticle">
-					    			<div class="col-md-3">
-					    				<img src="{{asset('images/articles/1/1_2016-12-07.jpg')}}">
-					    			</div>
-					    			<div class="col-md-6">
-					    				<h3><a href="">Title Articles 1</a></h3>
-					    				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					    				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					    				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					    				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					    				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					    				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-					    			</div>
-					    		</div>
-					    		<div class="row data-myArticle">
-					    			<div class="col-md-3">
-					    				<img src="{{asset('images/articles/10/10_2016-12-07.jpg')}}">
-					    			</div>
-					    			<div class="col-md-6">
-					    				<h3><a href="">Title Articles 2</a></h3>
-					    				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					    				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					    				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					    				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					    				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					    				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-					    			</div>
-					    		</div>
+					    		@if($articles->count()>0)
+						    		@foreach($articles as $article)
+						    		<div class="row data-myArticle">
+						    			<div class="col-md-3">
+						    				<img src="{{ $article->article_detail->first()->cover }}">
+						    			</div>
+						    			<div class="col-md-6">
+						    				<h3><a href="{{url('showArticle',$article->id)}}">{{$article->title}}</a></h3>
+						    				<p>{{$article->content}}</p>
+						    			</div>
+						    		</div>
+						    		@endforeach
+						    	@else
+						    	<br><br>
+						    	<p>You haven't posted any articles yet.</p>
+					    		@endif
 					    	</div>
 					    </div>
 					    <div role="tabpanel" class="tab-pane" id="myPollings">

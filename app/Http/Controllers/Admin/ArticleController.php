@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Article;
+use App\User;
 use App\ArticleDetail;
 use Image;
 class ArticleController extends Controller
@@ -395,6 +396,30 @@ class ArticleController extends Controller
         //     rmdir($directory);
         // }
         $article->delete();
+        return redirect()->action('Admin\ArticleController@index');
+    }
+    public function approve($id){
+
+        //change status
+        $article=Article::find($id);
+        $article->status="approved";
+
+        //add point
+        $user=User::find($article->submitted_by);
+        $user->points+=10;
+        $article->save();
+        $user->save();
+
+        return redirect()->action('Admin\ArticleController@index');
+    }
+
+    public function reject($id){
+
+        //change status
+        $article=Article::find($id);
+        $article->status="rejected";
+        $article->save();
+
         return redirect()->action('Admin\ArticleController@index');
     }
 }

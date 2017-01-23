@@ -23,11 +23,13 @@ Auth::routes();
 //Route::get('/home', 'HomeController@index');
 Route::get('/profile', 'PageController@profile');
 Route::get('/addArticle', 'PageController@addArticle');
+Route::post('/addArticle','PageController@submitNewArticle');
 Route::get('/addPolling', 'PageController@addPolling');
 
 //Route::get('/contact','PageController@contact');
 Route::post('/contact','PageController@sendMessage');
 Route::post('/submitPoll','PageController@submitPoll');
+
 // admin route
 Route::group(['prefix' => 'admin'], function() {
     Route::get('logout','Auth\LoginController@logout');
@@ -36,6 +38,8 @@ Route::group(['prefix' => 'admin'], function() {
 });
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth','admin']], function() {
     Route::resource('/article', 'ArticleController');
+    Route::get('/approveArticle/{id}', 'ArticleController@approve');
+    Route::get('/rejectArticle/{id}', 'ArticleController@reject');
     Route::get('/polling/data','PollingController@data');
     Route::resource('/polling', 'PollingController');
     Route::get('/', 'DashboardController@index');
