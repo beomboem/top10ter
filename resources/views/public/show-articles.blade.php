@@ -8,6 +8,11 @@
 			<div class="rating text-right">
 				Rating : 9.2
 			</div>
+			<div class="row article-content">
+				<p>
+					{{$article->content}}
+				</p>
+			</div>
 			<div class="row">	
 				<div class="col-md-2 articles-number">
 					<img src="{{asset('img/number/num-10.png')}}" class="img-responsive" alt="number">
@@ -148,6 +153,7 @@
 					</div>
 				</div>
 			</div>
+			<p>Creator : {{$article->author}}</p>
 			<div class="rating-box">
 				<a href="" title="I like this article"><i class="fa fa-thumbs-up fa-2x" aria-hidden="true"></i></a>
 				<a href="" title="I dislike this article"><i class="fa fa-thumbs-down fa-2x" aria-hidden="true"></i></a>

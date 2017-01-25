@@ -5,11 +5,20 @@
 		<div class="container">
 			<div class="row">
 				<div class = "photo-profile col-md-2">
-					<img src="{{asset('images/profile_test.jpg')}}">
+					<img id="profile-pic" class="profile-pic" src="{{asset('images/profile_test.jpg')}}">
+					<div id="upload-button" class="text-center"><i class="fa fa-pencil fa-4x" aria-hidden="true"></i></div>
 					<div class="profile-data">
 						<h5><b>{{ Auth::user()->name }}</b></h5>
-						<!-- <p>@KChanhee</p> -->
 						<small>{{ Auth::user()->email }}</small>
+						<button id="edit-button" class="btn-block">
+							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+							<small>Edit Profile</small>
+						</button>
+						<button id="save-button" class="btn-block">
+							<i class="fa fa-floppy-o" aria-hidden="true"></i>
+							<small>Save</small>
+						</button>
+						<input class="file-upload" type="file" accept="image/*" style="display:none"/>
 					</div>
 				</div>
 				<div class="profile-detail col-md-10">
@@ -61,5 +70,34 @@
 @endsection
 
 @section('customjs')
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#edit-button").on('click', function() {
+				document.getElementById('profile-pic').style.filter = "blur(3px)";
+				document.getElementById('upload-button').style.display="block";
+				document.getElementById('edit-button').style.display="none";
+				document.getElementById('save-button').style.display="block";
+			});
 
+			// var readURL = function(input) {
+		 //        if (input.files && input.files[0]) {
+		 //            var reader = new FileReader();
+
+		 //            reader.onload = function (e) {
+		 //                $('.profile-pic').attr('src', e.target.result);
+		 //            }
+		 //            reader.readAsDataURL(input.files[0]);
+		 //        }
+		 //    }
+
+		 //    $(".file-upload").on('change', function(){
+		 //    	readURL(this);
+		 //    });
+		    
+		 //    $("#upload-button").on('click', function() {
+		 //       $(".file-upload").click();
+		 //    });
+
+		});
+	</script>
 @endsection
