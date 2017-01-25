@@ -27,11 +27,16 @@ class PageController extends Controller
     public function index(){
         $articles=Article::where('status','approved')->orWhere('status',NULL)->get();
         $pollings=Polling::all();
-        return view('public.index',compact('articles','pollings'));
+        $testimonials = Message::all();
+        return view('public.index',compact('articles','pollings','testimonials'));
     }
     public function profile(){
         $articles=Article::where('submitted_by',Auth::user()->id)->get();
         return view('public.profile',compact('articles'));
+    }
+    public function articles(){
+        $articles=Article::where('status','approved')->orWhere('status',NULL)->get();
+        return view('public.articles',compact('articles'));
     }
     public function addArticle(){
         $author = Auth::user()->name;

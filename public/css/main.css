@@ -389,8 +389,11 @@ Articles Style
   color: #fff;
   font-weight: bold;
 }
-#articles .articles-box a:hover{
+#articles .articles-box >div a:hover{
   color: #7e7e8a;
+}
+#articles .articles-box a:hover{
+  color: black;
 }
 #articles .articles-box .btn-block{
   border: 2px solid #fff;
@@ -517,7 +520,7 @@ Our Team Style
 Testimonials Style
 ========================================================================== */
 #testimonials {
-  background-image: url("../img/testimonials/Testimonials.jpg");
+  background-image: url("../img/testimonials/Slide4.jpg");
   -moz-background-size: cover;
   -o-background-size: cover;
   -webkit-background-size: cover;
@@ -536,20 +539,23 @@ Testimonials Style
   color: #fff;
 }
 #testimonials .item .quote {
+  display: inline-flex;
   margin: 20px auto;
-  width: 80%;
 }
 #testimonials .item .quote .right {
+  display: inline-block;
   margin-left: 40px;
   font-size: 32px;
   color: #fff;
 }
 #testimonials .item .quote .left {
-  float: left;
+ /* float: left;*/
+ display: inline-block;
   margin-right: 40px;
   color: #fff;
 }
 #testimonials .item h5 {
+  display: inline-block;
   color: #fff;
   line-height: 36px;
 }
@@ -835,6 +841,7 @@ Media Queries Style
   color: white;
   z-index: 1;
   position: relative;
+  cursor: pointer;
 }
 
 #profile .profile-data{
@@ -901,4 +908,32 @@ Media Queries Style
 /* === Add Article & Add Polling Style ===*/
 #add-article, #add-polling{
   margin-top: 20vh;
+}
+
+/* === ARTICLES PAGE ===*/
+#articles-page{
+  margin-top: 25vh; 
+  margin-bottom: 5vh;
+}
+
+#articles-page h2{
+  font-weight: bold;
+}
+
+#articles-page .articles-box img{
+  width: 100%;
+  object-fit:cover;
+}
+
+#articles-page .articles-box p{
+  font-weight: bold;
+  margin-top: 2vh;
+}
+
+#articles-page .articles-box a:hover{
+  color: #929292;
+}
+
+#articles-page .articles-box a{
+  color: black;
 }

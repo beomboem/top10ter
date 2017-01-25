@@ -12,7 +12,7 @@
                     <!-- <a class="btn btn-transparent" href="#">Learn More</a><a class="btn btn-light" href="#">Buy Now</a> -->
                 </div>
             </div>
-            <div class="item" style="background-image: url(img/sliders/Slide2.jpg)">
+            <div class="item" style="background-image: url(img/sliders/Slide3.jpg)">
                 <div class="caption">
                     <h3 style="color:white">10 Facts</h3>
                     <h1>Unique | Entertaining</h1>
@@ -57,7 +57,7 @@
                     @endforeach
                 @endif
                 </div>
-                <button type="submit" class=" center-block btn-block">READ MORE</button>
+                <a href="{{ url('/articles') }}" type="button" class="btn-block center-block">READ MORE</a>
             </div>
         </div>
     </section>
@@ -213,31 +213,20 @@
             <h2>Testimonials</h2>
             <hr class="light-sep">
             <p>What Clients Say About Us</p>
-            <div id="owl-testi" class="owl-carousel owl-theme">
-                <div class="item">
-                    <div class="quote">
-                        <i class="fa fa-quote-left left fa-2x"></i>
-                        <h5>I’am amazed, I should say thank you so much for your awesome information. I will 
-look into <span>TOP10TER</span> everyday.<i class="fa fa-quote-right right fa-2x"></i></h5>
-
-                    </div>
+            
+                <div id="owl-testi" class="owl-carousel owl-theme">
+                    @if($testimonials->count()>0)
+                        @foreach($testimonials as $testimonial)
+                        <div class="item">
+                            <div class="quote">
+                                <i class="fa fa-quote-left left fa-2x"></i>
+                                <h5>{{$testimonial->content}}<i class="fa fa-quote-right right fa-2x"></i></h5>
+                            </div>
+                        </div>
+                        @endforeach
+                    @endif
                 </div>
-                <div class="item">
-                    <div class="quote">
-                        <i class="fa fa-quote-left left fa-2x"></i>
-                        <h5>Thankyou for the information that <span>TOP10TER</span> give. I haven't know that before, but now I can know more..<i class="fa fa-quote-right right fa-2x"></i></h5>
-
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="quote">
-                        <i class="fa fa-quote-left left fa-2x"></i>
-                        <h5>I’am amazed, I should say thank you so much for your awesome information. I will 
-look into <span>TOP10TER</span> everyday.<i class="fa fa-quote-right right fa-2x"></i></h5>
-
-                    </div>
-                </div>
-            </div>
+                
         </div>
     </section>
     <!-- Contact Us

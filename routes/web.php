@@ -22,6 +22,7 @@ Auth::routes();
 
 //Route::get('/home', 'HomeController@index');
 Route::get('/profile', 'PageController@profile');
+Route::get('/articles', 'PageController@articles');
 Route::get('/addArticle', 'PageController@addArticle');
 Route::post('/addArticle','PageController@submitNewArticle');
 Route::get('/addPolling', 'PageController@addPolling');
