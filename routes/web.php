@@ -26,6 +26,7 @@ Route::get('/articles', 'PageController@articles');
 Route::get('/addArticle', 'PageController@addArticle');
 Route::post('/addArticle','PageController@submitNewArticle');
 Route::get('/addPolling', 'PageController@addPolling');
+Route::post('/addPolling', 'PageController@submitNewPolling');
 
 //Route::get('/contact','PageController@contact');
 Route::post('/contact','PageController@sendMessage');
@@ -43,6 +44,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
     Route::get('/rejectArticle/{id}', 'ArticleController@reject');
     Route::get('/polling/data','PollingController@data');
     Route::resource('/polling', 'PollingController');
+    Route::get('/approvePolling/{id}', 'PollingController@approve');
+    Route::get('/rejectPolling/{id}', 'PollingController@reject');
     Route::get('/', 'DashboardController@index');
     Route::get('/message/data','MessageController@data');
     Route::resource('/message','MessageController');

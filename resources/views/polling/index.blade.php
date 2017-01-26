@@ -19,16 +19,34 @@
                     <div class="col-md-12">
                         <table id="datatable" class="table table-bordered table-striped">
                             <col width="40%"></col>
+                            <col width="20%"></col>
+                            <col width="20%"></col>
                             <col width="40%"></col>
                             <thead>
                                 <td>Question</td>
+                                <td>Status</td>
+                                <td>Submitted By</td>
                                 <td>Action</td>
                             </thead>
                              
                             @foreach($pollings as $polling)
                             <tr>
                                 <td> {{ $polling->question }} </td>
+                                <td> @if(isset($polling->status)) {{ title_case($polling->status)}} @endif </td>
+                                <td> @if(isset($polling->submitted_by)) {{ App\User::find($polling->submitted_by)->name}} @endif </td>
                                 <td>
+                                    @if($polling->status == 'submitted')
+                                        <a href="{{ action('Admin\PollingController@approve',$polling->id) }}">
+                                            <button class="btn btn-xs btn-info" style="width:70px">
+                                                Approve
+                                            </button><br><br>
+                                        </a>
+                                        <a href="{{ action('Admin\PollingController@reject',$polling->id) }}">
+                                            <button class="btn btn-xs btn-danger" style="width:70px">
+                                                Reject
+                                            </button><br><br>
+                                        </a>
+                                    @endif
                                     <button class="btn btn-xs" specification="button" onclick="showModalDetail({{$polling->id}})">
                                         <span class="fa fa-eye"></span>
                                     </button>

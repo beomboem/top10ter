@@ -15,7 +15,7 @@
 		                    </div>
 		                    <div class="form-group">
 		                        {!! Form::label('article_author', 'Article Author') !!}
-		                        {!! Form::text('author', $author, ['class' => 'form-control','readonly']) !!}
+		                        {!! Form::text('author', $author, ['class' => 'form-control']) !!}
 		                    </div>
 		                    <div class="form-group">
 		                        {!! Form::label('article_content', 'Article Content') !!}

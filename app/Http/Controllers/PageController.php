@@ -26,13 +26,14 @@ class PageController extends Controller
 {
     public function index(){
         $articles=Article::where('status','approved')->orWhere('status',NULL)->get();
-        $pollings=Polling::all();
+        $pollings=Polling::where('status','approved')->orWhere('status',NULL)->get();
         $testimonials = Message::all();
         return view('public.index',compact('articles','pollings','testimonials'));
     }
     public function profile(){
         $articles=Article::where('submitted_by',Auth::user()->id)->get();
-        return view('public.profile',compact('articles'));
+        $pollings=Polling::where('submitted_by',Auth::user()->id)->get();
+        return view('public.profile',compact('articles','pollings'));
     }
     public function articles(){
         $articles=Article::where('status','approved')->orWhere('status',NULL)->get();
@@ -384,6 +385,27 @@ class PageController extends Controller
             Image::make($file)->resize(612, 612)->save($full_path); 
            
         }
+        return redirect()->action('PageController@profile');
+    }
+
+    public function submitNewPolling(Request $request){
+        $input=$request->all();
+        $polling=Polling::create($input);
+        $polling->submitted_by=Auth::user()->id;
+        $polling->status="submitted";
+        $polling->save();
+        Option::create([
+            'polling_id' => $polling->id,
+            'answer' => $input["option1"],
+        ]);
+        Option::create([
+            'polling_id' => $polling->id,
+            'answer' => $input["option2"],
+        ]);
+        Option::create([
+            'polling_id' => $polling->id,
+            'answer' => $input["option3"],
+        ]);
         return redirect()->action('PageController@profile');
     }
 }

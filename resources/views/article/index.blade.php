@@ -45,17 +45,16 @@
                                         <span class="fa fa-eye"></span>
                                     </button> --}}
                                     @if($article->status == 'submitted')
-                                    <a href="{{ action('Admin\ArticleController@approve',$article->id) }}">
-                                        <button class="btn btn-xs btn-info" style="width:70px">
-                                            Approve
-                                        </button><br><br>
-                                    </a>
-                                    <a href="{{ action('Admin\ArticleController@reject',$article->id) }}">
-                                        <button class="btn btn-xs btn-danger" style="width:70px">
-                                            Reject
-                                        </button><br><br>
-                                    </a>
-
+                                        <a href="{{ action('Admin\ArticleController@approve',$article->id) }}">
+                                            <button class="btn btn-xs btn-info" style="width:70px">
+                                                Approve
+                                            </button><br><br>
+                                        </a>
+                                        <a href="{{ action('Admin\ArticleController@reject',$article->id) }}">
+                                            <button class="btn btn-xs btn-danger" style="width:70px">
+                                                Reject
+                                            </button><br><br>
+                                        </a>
                                     @endif
                                     <a href="{{ action('Admin\ArticleController@edit',$article->id) }}">
                                         <button class="btn btn-xs" specification="button">
