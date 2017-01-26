@@ -18,5 +18,11 @@ class UserSeeder extends Seeder
         	'email'=>'admin@topter.com',
             'type'=>'admin'
         ]);
+        User::create([
+            'name'=>'Anonymous Me',
+            'password'=>bcrypt('anon123'),
+            'email'=>'anonymousme@gmail.com',
+            'type'=>'member'
+        ]);
     }
 }

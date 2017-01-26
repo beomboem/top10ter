@@ -27,7 +27,7 @@ class PageController extends Controller
     public function index(){
         $articles=Article::where('status','approved')->orWhere('status',NULL)->get();
         $pollings=Polling::where('status','approved')->orWhere('status',NULL)->get();
-        $testimonials = Message::all();
+        $testimonials = Message::limit(3)->get();
         return view('public.index',compact('articles','pollings','testimonials'));
     }
     public function profile(){
