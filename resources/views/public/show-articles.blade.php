@@ -6,11 +6,12 @@
 		<div class="container">
 			<h2 style="margin-bottom:50px; font-weight:bold">{{$article->title}}</h2>
 			<div class="rating text-right">
-				Rating : 9.2
+				Rating : {{$article->avg_rating}}
 			</div>
+
 			<div class="row article-content">
 				<p>
-					{{$article->content}}
+					{!!$article->content!!}
 				</p>
 			</div>
 			<div class="row">	
@@ -158,6 +159,23 @@
 				<a href="" title="I like this article"><i class="fa fa-thumbs-up fa-2x" aria-hidden="true"></i></a>
 				<a href="" title="I dislike this article"><i class="fa fa-thumbs-down fa-2x" aria-hidden="true"></i></a>
 				<a href="" title="Share this article"><i class="fa fa-share-alt fa-2x" aria-hidden="true"></i></a>
+				<div class="row">
+					<div class="col-md-3">
+						@if (Auth::check())
+							<div class="star_rating">
+								<div class="star_icon" id="currentpoint1"></div>
+								<div class="star_icon" id="currentpoint2"></div>
+								<div class="star_icon" id="currentpoint3"></div>
+								<div class="star_icon" id="currentpoint4"></div>
+								<div class="star_icon" id="currentpoint5"></div>
+							</div>
+							<button class="btn-primary btn-block" onclick="showModalRating({{$article->id}})">Rate This!</button>
+						@else
+							Please log in to rate this article..
+						@endif
+					</div>
+				</div>
+				
 			</div>
 			<!--comment box-->
 			<div class="row" id="comment-box">
@@ -171,29 +189,36 @@
 	                    	</div>
 	                    	<div class="col-md-11 user-comment">
 	                    		<b>{{$comment->user->name}}</b>	- <small>{{$comment->created_at}}</small>
-	                    		@if ($comment->user->id == Auth::user()->id)
-		                            <button class="btn btn-xs" specification="button" onclick="showModalDelete({{$comment->id}})">
-		                                <span class="fa fa-trash"></span>
-		                            </button>
-			                    @endif
+	                    		@if (Auth::check())
+	                    			@if ($comment->user->id == Auth::user()->id)
+			                            <button class="btn btn-xs" specification="button" onclick="showModalDelete({{$comment->id}})">
+			                                <span class="fa fa-trash"></span>
+			                            </button>
+				                    @endif
+	                    		@endif
 	                    		<p>{{$comment->comment}}</p>
 	                    	</div>
 
 	                    </div>
 	                    
 					@endforeach
-				{!! Form::open(['action' => ['PageController@submitComment',$article->id], 'files' => 'true']) !!}
-				<div class="col-md-10">
-					<div class="form-group">
-					
-                        {!! Form::textarea('content', null, array('class' => 'form-control', 'placeholder'=>'Enter Your Comment', 'id' => 'description_box','required')) !!}
-                    </div>
-				</div>
-				<div class=" col-md-2 comment-button">
-					<button class="btn-block">Comment</button>
-				</div>
+					@if (Auth::check())
+						{!! Form::open(['action' => ['PageController@submitComment',$article->id], 'files' => 'true']) !!}
+							<div class="col-md-10">
+								<div class="form-group">
+								
+			                        {!! Form::textarea('content', null, array('class' => 'form-control', 'placeholder'=>'Enter Your Comment', 'id' => 'description_box','required')) !!}
+			                    </div>
+							</div>
+							<div class=" col-md-2 comment-button">
+								<button class="btn-block">Comment</button>
+							</div>
 
-                {!! Form::close() !!}
+			            {!! Form::close() !!}
+			        @else
+			        	<div class="col-md-10">Please log in to comment this article..</div>
+					@endif
+				
 			</div>
 
 		</div>
@@ -201,11 +226,39 @@
 	@endif
 @endsection
 @include('modal-delete')
+@include('modal-giverating')
 @section('customjs')
 <script type="text/javascript">
+	var article_id = {{$article->id}};
+
+	if({{Auth::check()}}){
+		for(i=1;i<={{$current_user_rating}};i++){
+			document.getElementById("currentpoint"+i).style.backgroundPosition="top";
+		}
+	}
+
     function showModalDelete(id){
         $('#modalDelete').modal('show');
         $('#modalDeleteForm').attr('action', '{{url("/showArticle")}}/'+id);
     }
+    function showModalRating(id){
+        $('#modalGiveRating').modal('show');
+    }
+
+    function hoverrating(ctt){
+    	clearhoverrating();
+		for(i=1;i<=ctt;i++){
+			document.getElementById("starpoint"+i).style.backgroundPosition="top";
+		}
+	}
+	function clearhoverrating(){
+		for(i=1;i<=5;i++){
+			document.getElementById("starpoint"+i).style.backgroundPosition="bottom";
+		}
+	}
+	function submitrate(rate){
+		window.location = "{{url('/giveRating/')}}/"+article_id+"/"+rate;
+	}
+
 </script>
 @endsection

@@ -9,7 +9,8 @@
         "laravel/framework": "5.3.*",
         "intervention/image": "dev-master",
         "laravelcollective/html": "5.3.*",
-        "ckeditor/ckeditor": "^4.5"
+        "ckeditor/ckeditor": "^4.5",
+        "ghanem/rating": "^1.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

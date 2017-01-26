@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "be1b6b56b6f6f80c2e18de9bf39c5024",
-    "content-hash": "4ddc370c93145aafbbfe4c45ebdd0fa0",
+    "hash": "b29acb5df361e4a34414221a5821df85",
+    "content-hash": "8b5e4a78f6246b2f71a5147bca97ed87",
     "packages": [
         {
             "name": "ckeditor/ckeditor",
@@ -201,6 +201,48 @@
                 "string"
             ],
             "time": "2015-11-06 14:35:42"
+        },
+        {
+            "name": "ghanem/rating",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/AbdullahGhanem/rating.git",
+                "reference": "00b8775100ebbaee8bcdca55e2159f0d250dca35"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/AbdullahGhanem/rating/zipball/00b8775100ebbaee8bcdca55e2159f0d250dca35",
+                "reference": "00b8775100ebbaee8bcdca55e2159f0d250dca35",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0",
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ghanem\\Rating\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "abdullah ghanem",
+                    "email": "3bdullah.ghanem@gmail.com"
+                }
+            ],
+            "description": "Rating syetem for Laravel 5",
+            "keywords": [
+                "Ratable",
+                "Rating",
+                "laravel"
+            ],
+            "time": "2015-11-11 17:36:48"
         },
         {
             "name": "guzzlehttp/psr7",

@@ -937,3 +937,13 @@ Media Queries Style
 #articles-page .articles-box a{
   color: black;
 }
+
+.star_icon{
+  display: inline-block;
+  width:40px;
+  height:40px;
+  cursor:pointer;
+  background-image: url('../images/star.png');
+  background-position: bottom;
+  background-size: cover;
+}
