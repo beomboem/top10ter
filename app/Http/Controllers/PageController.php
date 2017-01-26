@@ -3,20 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Message;
-
 use App\Article;
-
 use App\ArticleDetail;
-
 use Image;
-
 use App\Polling;
-
 use App\Option;
-
 use App\Comment;
+use App\Rating;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -63,7 +57,18 @@ class PageController extends Controller
         $article=Article::find($id);
         //$article=Article::find($id)->first();
         $comments = Comment::where('article_id', $id)->get();
-        return view('public.show-articles',compact('article', 'comments'));        
+        if(Auth::check()){
+            $user_id = Auth::user()->id;
+            $rating = Rating::where('article_id',$id)->where('user_id', $user_id)->first();
+            if($rating!=null){
+                $current_user_rating = $rating->rating;
+            }else{
+                $current_user_rating = 0;
+            }
+        }else{
+            $current_user_rating = -1;
+        }
+        return view('public.show-articles',compact('article', 'comments','current_user_rating'));        
     }
     public function submitPoll(Request $request){
         $selectedOption=Option::find($request->poll);
@@ -86,7 +91,18 @@ class PageController extends Controller
         $comment->delete();
         return redirect()->action('PageController@showArticles',$article_id);
     }
-
+    public function giveRating($article_id, $rating){
+        Rating::updateOrCreate(
+            [
+                'article_id' => $article_id,
+                'user_id' => Auth::user()->id
+            ],
+            [
+                'rating' => $rating
+            ]
+        );
+        return redirect()->action('PageController@showArticles',$article_id);
+    } 
     public function submitNewArticle(Request $request){
         //add article to database
 
