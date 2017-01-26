@@ -5,8 +5,10 @@
 	<section id="articles-detail">
 		<div class="container">
 			<h2 style="margin-bottom:50px; font-weight:bold">{{$article->title}}</h2>
-			<div class="rating text-right">
-				Rating : {{$article->avg_rating}}
+			<div class="col-md-11">
+				<div class="rating text-right" style="font-size: 18px;letter-spacing: 2px">
+					<b>Rating : {{$article->avg_rating}}</b>
+				</div>
 			</div>
 
 			<div class="row article-content">
@@ -159,17 +161,25 @@
 				<a href="" title="I like this article"><i class="fa fa-thumbs-up fa-2x" aria-hidden="true"></i></a>
 				<a href="" title="I dislike this article"><i class="fa fa-thumbs-down fa-2x" aria-hidden="true"></i></a>
 				<a href="" title="Share this article"><i class="fa fa-share-alt fa-2x" aria-hidden="true"></i></a>
+				<div class="row" style="padding-top: 30px;">
+					<div class="col-md-10">
+						<b>Your Rating:</b>
+					</div>
+					
+				</div>
 				<div class="row">
-					<div class="col-md-3">
+					<div style="padding-top: 15px;">
 						@if (Auth::check())
-							<div class="star_rating">
+							<div class="star_rating col-md-3">
 								<div class="star_icon" id="currentpoint1"></div>
 								<div class="star_icon" id="currentpoint2"></div>
 								<div class="star_icon" id="currentpoint3"></div>
 								<div class="star_icon" id="currentpoint4"></div>
 								<div class="star_icon" id="currentpoint5"></div>
 							</div>
-							<button class="btn-primary btn-block" onclick="showModalRating({{$article->id}})">Rate This!</button>
+							<div class="col-md-3">
+								<button class="btn-primary btn-block col-md-3" onclick="showModalRating({{$article->id}})">Rate This!</button>
+							</div>
 						@else
 							Please log in to rate this article..
 						@endif
