@@ -25,6 +25,10 @@ class AddPointsToUsersTable extends Migration
      */
     public function down()
     {
-        //
+        if(Schema::hasColumn('users','points')){
+            Schema::table('users',function(Blueprint $table){
+                $table->dropColumn('points');
+            });
+        }
     }
 }

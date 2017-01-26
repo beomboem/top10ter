@@ -26,6 +26,15 @@ class AddStatusAndSubmittedByToArticles extends Migration
      */
     public function down()
     {
-        //
+        if(Schema::hasColumn('articles','submitted_by')){
+            Schema::table('articles',function(Blueprint $table){
+                $table->dropColumn('submitted_by');
+            });
+        }
+        if(Schema::hasColumn('articles','status')){
+            Schema::table('articles',function(Blueprint $table){
+                $table->dropColumn('status');
+            });
+        }
     }
 }
