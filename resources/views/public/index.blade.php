@@ -72,7 +72,7 @@
             <p>CHOOSE YOUR OWN TOPIC OF THE WEEK</p>
                 @if($pollings->count()>0)
                     @foreach($pollings as $polling)
-                    <div class="col-md-4" style="box-shadow: 10px 10px 5px #888888;margin:0 10px; background-color:white;">
+                    <div class="col-md-4" style="box-shadow: 10px 10px 5px #888888; margin:0 7px; background-color:white; width:32%;">
                         <form>
                             <div class="panel">
                                 <div class="panel-heading">
