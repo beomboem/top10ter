@@ -47,18 +47,28 @@
 						    		</div>
 						    		@endforeach
 						    	@else
-						    	<br><br>
-						    	<p>You haven't posted any articles yet.</p>
+							    	<br><br>
+							    	<p>You haven't submitted any articles yet.</p>
 					    		@endif
 					    	</div>
 					    </div>
 					    <div role="tabpanel" class="tab-pane" id="myPollings">
 					    	<div class="container">
 					    		<a href="{{ url('/addPolling') }}" type="button" class="btn-block text-center" style="width:25%; color:white">Add new polling</a>
+					    		@if($pollings->count()>0)
 					    		<div class="data-myPolling">
-					    			<h5><a href="">Topik polling 1</a></h5>
-					    			<h5><a href="">Topik polling 2</a></h5>
+					    			@foreach($pollings as $polling)
+					    				<h5>{{$polling->question}}</h5>
+					    				@foreach($polling->option as $o)
+					    					<li>{{ $o->answer }}</li>
+					    				@endforeach
+					    				<br>
+					    			@endforeach
 					    		</div>
+					    		@else
+						    		<br><br>
+							    	<p>You haven't submitted any pollings yet.</p>
+					    		@endif
 					    	</div>
 					    </div>
 					</div>

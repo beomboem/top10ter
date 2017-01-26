@@ -11,7 +11,7 @@
 
 			<div class="row article-content">
 				<p>
-					{!!$article->content!!}
+					{!!nl2br($article->content)!!}
 				</p>
 			</div>
 			<div class="row">	

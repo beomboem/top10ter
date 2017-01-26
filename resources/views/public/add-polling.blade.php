@@ -8,7 +8,7 @@
 					<h2><b>Add Polling</b></h2>
             		<div class="panel panel-default">
 		                <div class="panel-body">
-		                     {!! Form::open(['action' => 'Admin\PollingController@store']) !!}
+		                     {!! Form::open(['action' => 'PageController@submitNewPolling']) !!}
 		                    <div class="form-group">
 		                        {!! Form::label('polling_question', 'Question') !!}
 		                        {!! Form::text('question', null, ['class' => 'form-control', 'placeholder' => "Enter Question",'required']) !!}

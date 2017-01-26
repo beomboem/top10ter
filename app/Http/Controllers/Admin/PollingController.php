@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Polling;
 use App\Option;
+use App\User;
 class PollingController extends Controller
 {
     /**
@@ -88,5 +89,27 @@ class PollingController extends Controller
         $response["option2"] = $polling->option[1];
         $response["option3"] = $polling->option[2];
         return response()->json($response);
+    }
+    public function approve($id){
+        //change status
+        $polling=Polling::find($id);
+        $polling->status="approved";
+
+        //add point
+        $user=User::find($polling->submitted_by);
+        $user->points+=10;
+
+        $polling->save();
+        $user->save();
+
+        return redirect()->action('Admin\PollingController@index');
+    }
+    public function reject($id){
+        //change status
+        $polling=Polling::find($id);
+        $polling->status="rejected";
+        $polling->save();
+
+        return redirect()->action('Admin\PollingController@index');
     }
 }
