@@ -1,5 +1,4 @@
 @extends('layouts.landing')
-
 @section('content')
 	<section id="profile">
 		<div class="container">
@@ -28,7 +27,6 @@
 						<li role="presentation" class="active"><a href="#myArticles" aria-controls="myArticles" role="tab" data-toggle="tab">My Articles</a></li>
 					    <li role="presentation"><a href="#myPollings" aria-controls="myPollings" role="tab" data-toggle="tab">My Pollings</a></li>
 					</ul>
-
 					<!-- Tab panes -->
 					<div class="tab-content">
 					    <div role="tabpanel" class="tab-pane active" id="myArticles">
@@ -72,13 +70,11 @@
 					    	</div>
 					    </div>
 					</div>
-
 				</div>
 			</div>
 		</div>
 	</section>
 @endsection
-
 @section('customjs')
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -88,18 +84,15 @@
 				document.getElementById('edit-button').style.display="none";
 				document.getElementById('save-button').style.display="block";
 			});
-
 			// var readURL = function(input) {
 		 //        if (input.files && input.files[0]) {
 		 //            var reader = new FileReader();
-
 		 //            reader.onload = function (e) {
 		 //                $('.profile-pic').attr('src', e.target.result);
 		 //            }
 		 //            reader.readAsDataURL(input.files[0]);
 		 //        }
 		 //    }
-
 		 //    $(".file-upload").on('change', function(){
 		 //    	readURL(this);
 		 //    });
@@ -107,7 +100,6 @@
 		 //    $("#upload-button").on('click', function() {
 		 //       $(".file-upload").click();
 		 //    });
-
 		});
 	</script>
 @endsection
