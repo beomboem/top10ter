@@ -14,7 +14,7 @@ class AddRatingToArticlesTable extends Migration
     public function up()
     {
         Schema::table('articles', function (Blueprint $table) {
-            $table->integer('rating');
+            $table->integer('rating')->default(0);
         });
     }
 
@@ -25,6 +25,10 @@ class AddRatingToArticlesTable extends Migration
      */
     public function down()
     {
-        //
+        if(Schema::hasColumn('articles','rating')){
+            Schema::table('articles',function(Blueprint $table){
+                $table->dropColumn('rating');
+            });
+        }
     }
 }

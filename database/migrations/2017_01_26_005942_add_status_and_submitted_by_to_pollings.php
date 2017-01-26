@@ -26,6 +26,15 @@ class AddStatusAndSubmittedByToPollings extends Migration
      */
     public function down()
     {
-        //
+        if(Schema::hasColumn('pollings','submitted_by')){
+            Schema::table('pollings',function(Blueprint $table){
+                $table->dropColumn('submitted_by');
+            });
+        }
+        if(Schema::hasColumn('pollings','status')){
+            Schema::table('pollings',function(Blueprint $table){
+                $table->dropColumn('status');
+            });
+        }
     }
 }
