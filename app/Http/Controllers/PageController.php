@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Auth;
 class PageController extends Controller
 {
     public function index(){
-        $articles=Article::where('status','approved')->orWhere('status',NULL)->get();
+        $articles=Article::where('status','approved')->orWhere('status',NULL)->orderBy('updated_at','desc')->limit(6)->get();
         $pollings=Polling::where('status','approved')->orWhere('status',NULL)->get();
         $testimonials = Message::limit(3)->get();
         return view('public.index',compact('articles','pollings','testimonials'));
@@ -73,7 +73,7 @@ class PageController extends Controller
         // return view('public.profile',compact('articles','pollings'));
     }
     public function articles(){
-        $articles=Article::where('status','approved')->orWhere('status',NULL)->get();
+        $articles=Article::where('status','approved')->orWhere('status',NULL)->paginate(8);
         return view('public.articles',compact('articles'));
     }
     public function addArticle(){
