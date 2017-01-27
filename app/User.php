@@ -32,4 +32,22 @@ class User extends Authenticatable
         }
         return false;
     }
+
+    public function files(){
+        return $this->morphMany('App\FileManagement','fileable');
+    }
+    public function getCoverAttribute(){
+        if($d=$this->files()->where('type','cover')->first()){
+            return url($d->base_url.$d->file_name.'.'.$d->extension);
+        }else{
+            return '';
+        }
+    }
+    public function getDirectoryPathAttribute(){
+        if($d=$this->files()->where('type','cover')->first()){
+            return $d->base_url;
+        }else{
+            return "";
+        }
+    }
 }
