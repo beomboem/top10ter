@@ -65,8 +65,9 @@ class PageController extends Controller
             Image::make($file)->resize(400, 400)->save($full_path); 
            
         }
-        $response['status'] = "success";
-        return response()->json($response);
+        /*$response['status'] = "success";
+        return response()->json($response);*/
+        return redirect()->action('PageController@profile');
     }
     public function articles(){
         $articles=Article::where('status','approved')->orWhere('status',NULL)->paginate(8);

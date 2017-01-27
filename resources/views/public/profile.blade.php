@@ -1,18 +1,19 @@
 @extends('layouts.landing')
-@section('head')
+{{--@section('head')
 <meta name="csrf-token" content="{{ csrf_token() }}"> 
-@endsection
+@endsection--}}
 @section('content')
 	<section id="profile">
 		<div class="container">
 			<div class="row">
+				{{Form::open(['action' => 'PageController@editProfile','files' => 'true'])}}
 				<div class = "photo-profile col-md-2">
-					<img id="profile-pic" class="profile-pic" src="{{asset('images/profile_test.jpg')}}">
+					<img id="profile-pic" class="profile-pic" src="@if(Auth::user()->cover!=null) {{Auth::user()->cover}} @else {{asset('images/profile.jpg')}} @endif">
 					<div id="upload-button" class="text-center"><i class="fa fa-pencil fa-4x" aria-hidden="true"></i></div>
 					<div class="profile-data">
 						<h5><b>{{ Auth::user()->name }}</b></h5>
 						<small>{{ Auth::user()->email }}</small>
-						<button id="edit-button" class="btn-block">
+						<button id="edit-button" class="btn-block" type="button">
 							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 							<small>Edit Profile</small>
 						</button>
@@ -20,9 +21,10 @@
 							<i class="fa fa-floppy-o" aria-hidden="true"></i>
 							<small>Save</small>
 						</button>
-						<input class="file-upload" type="file" accept="image/*" style="display:none"/>
+						<input class="file-upload" type="file" name="image" accept="image/*" style="display:none"/>
 					</div>
 				</div>
+				{{Form::close()}}
 				<div class="profile-detail col-md-10">
 					<p class="text-right">Points : {{Auth::user()->points}}</p>
 					<!-- Nav tabs -->
@@ -92,7 +94,7 @@
 		            var reader = new FileReader();
 		            reader.onload = function (e) {
 		                $('.profile-pic').attr('src', e.target.result);
-		                var data ={
+		                /*var data ={
 					        'image' : e.target.result
 						};
 						$.ajaxSetup({
@@ -112,7 +114,7 @@
 					        {
 					        	alert('error');
 					        }
-					    });
+					    });*/
 		            }
 		            reader.readAsDataURL(input.files[0]);
 		        }
