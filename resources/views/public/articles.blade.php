@@ -3,7 +3,7 @@
 @section('content')
 	<section id="articles-page">
 		<div class="container">
-			<h2>Articles</h2>
+			<center><h2>Articles</h2></center>
             <hr class="light-sep">
             <div class="articles-box">
                 <div class="row wow fadeInUp" data-wow-delay=".3s">
@@ -19,6 +19,7 @@
                     </div>
                     @endforeach
                 @endif
+                <div class="text-center col-md-12">{{$articles->links()}}</div>
                 </div>
             </div>
 		</div>

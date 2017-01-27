@@ -947,3 +947,15 @@ Media Queries Style
   background-position: bottom;
   background-size: cover;
 }
+
+
+/* == Pagination == */
+.pagination li a{
+    color: #24242a !important;
+    font-weight: 600 !important;
+}
+
+.pagination li.active span {
+    background: black !important;
+    border-color: white !important;
+}

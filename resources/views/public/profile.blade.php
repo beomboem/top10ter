@@ -1,16 +1,19 @@
 @extends('layouts.landing')
-
+{{--@section('head')
+<meta name="csrf-token" content="{{ csrf_token() }}"> 
+@endsection--}}
 @section('content')
 	<section id="profile">
 		<div class="container">
 			<div class="row">
+				{{Form::open(['action' => 'PageController@editProfile','files' => 'true'])}}
 				<div class = "photo-profile col-md-2">
-					<img id="profile-pic" class="profile-pic" src="{{asset('images/profile_test.jpg')}}">
+					<img id="profile-pic" class="profile-pic" src="@if(Auth::user()->cover!=null) {{Auth::user()->cover}} @else {{asset('images/profile.jpg')}} @endif">
 					<div id="upload-button" class="text-center"><i class="fa fa-pencil fa-4x" aria-hidden="true"></i></div>
 					<div class="profile-data">
 						<h5><b>{{ Auth::user()->name }}</b></h5>
 						<small>{{ Auth::user()->email }}</small>
-						<button id="edit-button" class="btn-block">
+						<button id="edit-button" class="btn-block" type="button">
 							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 							<small>Edit Profile</small>
 						</button>
@@ -18,9 +21,10 @@
 							<i class="fa fa-floppy-o" aria-hidden="true"></i>
 							<small>Save</small>
 						</button>
-						<input class="file-upload" type="file" accept="image/*" style="display:none"/>
+						<input class="file-upload" type="file" name="image" accept="image/*" style="display:none"/>
 					</div>
 				</div>
+				{{Form::close()}}
 				<div class="profile-detail col-md-10">
 					<p class="text-right">Points : {{Auth::user()->points}}</p>
 					<!-- Nav tabs -->
@@ -28,7 +32,6 @@
 						<li role="presentation" class="active"><a href="#myArticles" aria-controls="myArticles" role="tab" data-toggle="tab">My Articles</a></li>
 					    <li role="presentation"><a href="#myPollings" aria-controls="myPollings" role="tab" data-toggle="tab">My Pollings</a></li>
 					</ul>
-
 					<!-- Tab panes -->
 					<div class="tab-content">
 					    <div role="tabpanel" class="tab-pane active" id="myArticles">
@@ -72,13 +75,11 @@
 					    	</div>
 					    </div>
 					</div>
-
 				</div>
 			</div>
 		</div>
 	</section>
 @endsection
-
 @section('customjs')
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -88,26 +89,43 @@
 				document.getElementById('edit-button').style.display="none";
 				document.getElementById('save-button').style.display="block";
 			});
-
-			// var readURL = function(input) {
-		 //        if (input.files && input.files[0]) {
-		 //            var reader = new FileReader();
-
-		 //            reader.onload = function (e) {
-		 //                $('.profile-pic').attr('src', e.target.result);
-		 //            }
-		 //            reader.readAsDataURL(input.files[0]);
-		 //        }
-		 //    }
-
-		 //    $(".file-upload").on('change', function(){
-		 //    	readURL(this);
-		 //    });
+			var readURL = function(input) {
+		        if (input.files && input.files[0]) {
+		            var reader = new FileReader();
+		            reader.onload = function (e) {
+		                $('.profile-pic').attr('src', e.target.result);
+		                /*var data ={
+					        'image' : e.target.result
+						};
+						$.ajaxSetup({
+				            headers: {
+				                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				            }
+				        });
+		                $.ajax({
+					        url: '{{url("/editProfile/")}}',
+					        type: 'POST',
+					        data: data,
+					        success: function(data, textStatus, jqXHR)
+					        {
+					        	console.log("berhasil");
+					        },
+					        error: function(jqXHR, textStatus, errorThrown)
+					        {
+					        	alert('error');
+					        }
+					    });*/
+		            }
+		            reader.readAsDataURL(input.files[0]);
+		        }
+		    }
+		    $(".file-upload").on('change', function(){
+		    	readURL(this);
+		    });
 		    
-		 //    $("#upload-button").on('click', function() {
-		 //       $(".file-upload").click();
-		 //    });
-
+		    $("#upload-button").on('click', function() {
+		       $(".file-upload").click();
+		    });
 		});
 	</script>
 @endsection

@@ -193,7 +193,11 @@
 					@foreach ($comments as $comment)
 						<div class="row">
 	                    	<div class="col-md-1 user-comment-photo">
-	                    		<img src="{{asset('images/profile_test.jpg')}}">
+	                    		@if($comment->user->cover ==null)
+	                    		<img src="{{asset('images/profile.jpg')}}">
+	                    		@else
+	                    		<img src="{{$comment->user->cover}}">
+	                    		@endif
 	                    	</div>
 	                    	<div class="col-md-11 user-comment">
 	                    		<b>{{$comment->user->name}}</b>	- <small>{{$comment->created_at}}</small>

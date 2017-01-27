@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Auth;
 class PageController extends Controller
 {
     public function index(){
-        $articles=Article::where('status','approved')->orWhere('status',NULL)->get();
+        $articles=Article::where('status','approved')->orWhere('status',NULL)->orderBy('updated_at','desc')->limit(6)->get();
         $pollings=Polling::where('status','approved')->orWhere('status',NULL)->get();
         $testimonials = Message::limit(3)->get();
         return view('public.index',compact('articles','pollings','testimonials'));
@@ -29,8 +29,48 @@ class PageController extends Controller
         $pollings=Polling::where('submitted_by',Auth::user()->id)->get();
         return view('public.profile',compact('articles','pollings'));
     }
+    public function editProfile(Request $request){
+        $user = Auth::user();
+        if ($request->hasFile('image')) {
+            if($user->directory_path!=""){
+                $directory=public_path($user->directory_path);
+                $files=glob($directory."*");
+                foreach($files as $file2){
+                    if(is_file($file2))
+                        unlink($file2);
+                }
+                $user->files->first()->delete();
+            }
+            
+            $path='images/profile';
+            $file = $request->file('image'); 
+            
+ 
+            $image= $user->files()->create([ 
+                'attachment_type_id' => 1, 
+                'name' => '', 
+ 
+                'type' => 'cover', 
+                'file_type' => 'image', 
+ 
+                'base_url' => $path.'/'.$user->id.'/', 
+                'file_name' => $user->id.'_'.date('Y-m-d'), 
+                'extension' => $file->getClientOriginalExtension(), 
+            ]); 
+            $dir=$image->base_url; 
+            if (!is_dir($dir)) { 
+                mkdir($dir, 0755, true); 
+            } 
+            $full_path=$dir.$image->file_name.'.'.$image->extension; 
+            Image::make($file)->resize(400, 400)->save($full_path); 
+           
+        }
+        /*$response['status'] = "success";
+        return response()->json($response);*/
+        return redirect()->action('PageController@profile');
+    }
     public function articles(){
-        $articles=Article::where('status','approved')->orWhere('status',NULL)->get();
+        $articles=Article::where('status','approved')->orWhere('status',NULL)->paginate(8);
         return view('public.articles',compact('articles'));
     }
     public function addArticle(){
