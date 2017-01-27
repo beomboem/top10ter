@@ -838,7 +838,7 @@ Media Queries Style
 }
 
 #profile .photo-profile #upload-button i{
-  color: white;
+  color: black;
   z-index: 1;
   position: relative;
   cursor: pointer;
