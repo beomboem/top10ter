@@ -158,9 +158,7 @@
 			</div>
 			<p>Creator : {{$article->author}}</p>
 			<div class="rating-box">
-				<a href="" title="I like this article"><i class="fa fa-thumbs-up fa-2x" aria-hidden="true"></i></a>
-				<a href="" title="I dislike this article"><i class="fa fa-thumbs-down fa-2x" aria-hidden="true"></i></a>
-				<a href="" title="Share this article"><i class="fa fa-share-alt fa-2x" aria-hidden="true"></i></a>
+				
 				<div class="row" style="padding-top: 30px;">
 					<div class="col-md-10">
 						<b>Your Rating:</b>
