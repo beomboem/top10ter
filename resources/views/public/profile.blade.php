@@ -106,7 +106,7 @@
 					        data: data,
 					        success: function(data, textStatus, jqXHR)
 					        {
-
+					        	console.log("berhasil");
 					        },
 					        error: function(jqXHR, textStatus, errorThrown)
 					        {
