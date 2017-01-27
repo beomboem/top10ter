@@ -31,45 +31,46 @@ class PageController extends Controller
     }
     public function editProfile(Request $request){
         $user = Auth::user();
-        dd($request->file('image'));
-        if ($request->hasFile('image')) {
-            if($user->directory_path!=""){
-                $directory=public_path($user->directory_path);
-                $files=glob($directory."*");
-                foreach($files as $file2){
-                    if(is_file($file2))
-                        unlink($file2);
-                }
-                $user->files->first()->delete();
-            }
+        // dd($request->file('image'));
+        // if ($request->hasFile('image')) {
+        //     if($user->directory_path!=""){
+        //         $directory=public_path($user->directory_path);
+        //         $files=glob($directory."*");
+        //         foreach($files as $file2){
+        //             if(is_file($file2))
+        //                 unlink($file2);
+        //         }
+        //         $user->files->first()->delete();
+        //     }
             
-            $path='images/profile';
-            $file = $request->file('image'); 
+        //     $path='images/profile';
+        //     $file = $request->file('image'); 
             
  
-            $image= $user->files()->create([ 
-                'attachment_type_id' => 1, 
-                'name' => '', 
+        //     $image= $user->files()->create([ 
+        //         'attachment_type_id' => 1, 
+        //         'name' => '', 
  
-                'type' => 'cover', 
-                'file_type' => 'image', 
+        //         'type' => 'cover', 
+        //         'file_type' => 'image', 
  
-                'base_url' => $path.'/'.$user->id.'/', 
-                'file_name' => $user->id.'_'.date('Y-m-d'), 
-                'extension' => $file->getClientOriginalExtension(), 
-            ]); 
-            $dir=$image->base_url; 
-            if (!is_dir($dir)) { 
-                mkdir($dir, 0755, true); 
-            } 
-            $full_path=$dir.$image->file_name.'.'.$image->extension; 
-            Image::make($file)->resize(400, 400)->save($full_path); 
+        //         'base_url' => $path.'/'.$user->id.'/', 
+        //         'file_name' => $user->id.'_'.date('Y-m-d'), 
+        //         'extension' => $file->getClientOriginalExtension(), 
+        //     ]); 
+        //     $dir=$image->base_url; 
+        //     if (!is_dir($dir)) { 
+        //         mkdir($dir, 0755, true); 
+        //     } 
+        //     $full_path=$dir.$image->file_name.'.'.$image->extension; 
+        //     Image::make($file)->resize(400, 400)->save($full_path); 
            
-        }
-
-        $articles=Article::where('submitted_by',Auth::user()->id)->get();
-        $pollings=Polling::where('submitted_by',Auth::user()->id)->get();
-        return view('public.profile',compact('articles','pollings'));
+        // }
+        $response['test'] = "test";
+        return response()->json($response);
+        // $articles=Article::where('submitted_by',Auth::user()->id)->get();
+        // $pollings=Polling::where('submitted_by',Auth::user()->id)->get();
+        // return view('public.profile',compact('articles','pollings'));
     }
     public function articles(){
         $articles=Article::where('status','approved')->orWhere('status',NULL)->get();

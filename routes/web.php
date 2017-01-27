@@ -19,7 +19,7 @@ Route::get('/showArticle/{id}','PageController@showArticles');
 Route::post('/showArticle/{id}','PageController@submitComment');
 Route::delete('/showArticle/{id}','PageController@deleteComment');
 Route::get('/giveRating/{article_id}/{rating}','PageController@giveRating');
-Route::get('/editProfile/','PageController@editProfile');
+Route::post('/editProfile','PageController@editProfile');
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index');
